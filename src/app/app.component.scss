@@ -1,0 +1,23 @@
+.order-tag{
+    
+    position: fixed;
+    right: 0;
+    top: 50%;
+    margin-right: -60px;
+    transform: rotate(270deg);
+    color: #fff;
+    background: #404040;
+    padding-top: 20px;
+    padding: 10px;
+    z-index: 1;
+}
+
+.order-active{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    router-outlet{
+        padding-top: 500px;
+    }
+}

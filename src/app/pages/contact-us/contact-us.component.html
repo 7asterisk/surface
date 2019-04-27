@@ -1,0 +1,436 @@
+<section class="section section-light-grey is-small">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-4">
+        <div class="columns">
+          <div class="column is-centered-tablet-portrait">
+            <h1 class="title section-title">Find Us</h1>
+            <!-- <h3 class="subtitle is-4 is-muted">And we Know it</h3> -->
+            <div class="divider"></div>
+          </div>
+        </div><br>
+        <div class="media-content mt-50">
+          <div class="content">
+            <p>
+              <span class="icon-box-title">
+                Surface Design Technologies Pvt. Ltd. <br>
+                Sr. No. 128/2,Gala 5 & 18,<br>
+                F Wing,Steel India Complex Mohan Nagar,<br>
+                Telco Road,Chinchwad, Pune-411019.
+              </span><br>
+              <span class="icon-box-text">
+                <i class="material-icons my-material-icons">
+                  call
+                </i>
+                <span>
+                  020 2747 6117
+                </span>
+                <br>
+              </span>
+              <span class="icon-box-text">
+                <i class="material-icons my-material-icons">
+                  phone_iphone
+                </i>
+                <span>
+                  986 031 7333
+                </span>
+                <br>
+              </span>
+              <span class="icon-box-text">
+                <i class="material-icons my-material-icons">
+                  email
+                </i>
+                <span>
+                  sdtpl.re@gmail.com
+                </span>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="media-content mt-50">
+          <div class="content">
+            <p>
+              <span class="icon-box-title">
+                Surface Design Technologies Pvt. Ltd. <br>
+                Plot no. A-12,
+                IT park Desur, <br>
+                Belagavi-590014
+              </span><br>
+
+              <span class="icon-box-text">
+                <i class="material-icons my-material-icons">
+                  call
+                </i>
+                <span>
+                  020 2747 6117
+                </span>
+                <br>
+              </span>
+              <span class="icon-box-text">
+                <i class="material-icons my-material-icons">
+                  email
+                </i>
+                <span>
+                  info@surfacedesigntech.com
+                </span>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="media-content mt-50">
+          <div class="content">
+            <p class="has-text-centred">
+              <span class="icon-box-title">Mr Sanjay Ambure,<br>
+                Hamdan street, Abu-Dhabi</span><br>
+
+              <span class="icon-box-text">
+                <i class="material-icons my-material-icons">
+                  call
+                </i>
+                <span>
+                  971 50613 8200
+                </span>
+                <br>
+              </span>
+              <span class="icon-box-text">
+                <i class="material-icons my-material-icons">
+                  email
+                </i>
+                <span>
+                  info@surfacedesigntech.com
+                </span>
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="media-content mt-50">
+          <div class="content">
+            <p class="has-text-centred">
+              <span class="icon-box-title">Clarksburg, Maryland <br>
+                20871 USA</span><br>
+              <span class="icon-box-text">
+                <i class="material-icons my-material-icons">
+                  call
+                </i>
+                <span>
+                  732 939 676
+                </span>
+                <br>
+              </span>
+              <span class="icon-box-text">
+                <i class="material-icons my-material-icons">
+                  email
+                </i>
+                <span>
+                  info@surfacedesigntech.com
+                </span>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-8">
+        <div class="title-wrapper has-text-centered">
+          <h2 class="title is-3 is-spaced">Contact <br> SURFACE DESIGN Technologies Pvt. Ltd.</h2>
+          <br>
+        </div>
+        <div class="content-wrapper">
+          <div class="columns">
+            <div class="column is-10 is-offset-1">
+
+
+
+
+
+
+              <div class="container">
+                <form novalidate [formGroup]="myform" (ngSubmit)="onSubmit()">
+                  <div class="form-control-feedback" *ngIf="mainerrors">
+                    <p class="notification is-danger"> <button class="delete" (click)="mainerrors = false"></button>Fill all the required field</p>
+                  </div>
+                  <div class="columns">
+                    <fieldset formGroupName="name" class="column is-6">
+                      <div class="form-group" [ngClass]="{
+          'has-danger': firstName.invalid && (firstName.dirty || firstName.touched),
+          'has-success': firstName.valid && (firstName.dirty || firstName.touched)
+        }">
+                        <label>Name *</label>
+                        <input type="text" class="form-control" [(ngModel)]="nameV" formControlName="firstName"
+                          required>
+                        <div class="form-control-feedback"
+                          *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                          <p class="notification is-danger" *ngIf="firstName.errors.required">first Name is required</p>
+                        </div>
+                      </div>
+                    </fieldset>
+
+
+                    <div class="form-group column is-6" [ngClass]="{
+          'has-danger': email.invalid && (email.dirty || email.touched),
+          'has-success': email.valid && (email.dirty || email.touched)
+     }">
+                      <label>Email *</label>
+                      <input type="email" class="form-control" formControlName="email" [(ngModel)]="emailV" required>
+                      <div class="form-control-feedback " *ngIf="email.errors && (email.dirty || email.touched)">
+                        <p class="notification is-danger" *ngIf="email.errors.required">Email is required</p>
+                        <p class="notification is-danger" *ngIf="email.errors.minlength">The email address must contain
+                          at least the @ character</p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="columns">
+                    <div class="form-group column is-6" [ngClass]="{
+    'has-danger': pno.invalid && (pno.dirty || pno.touched),
+    'has-success': pno.valid && (pno.dirty || pno.touched)
+}">
+                      <label>Phone Number*</label>
+                      <input type="number" class="form-control" formControlName="pno" [(ngModel)]="pnoV" required>
+                      <div class="form-control-feedback" *ngIf="pno.errors && (pno.dirty || pno.touched)">
+                        <p class="notification is-danger" class="notification is-danger" *ngIf="pno.errors.required">
+                          Number is required</p>
+                        <p class="notification is-danger" class="notification is-danger" *ngIf="pno.errors.pattern">The
+                          Phone Number must contain 10 digit</p>
+                      </div>
+                    </div>
+
+
+                    <fieldset formGroupName="name" class="column is-6">
+                      <div class="form-group" [ngClass]="{
+'has-danger': company.invalid && (company.dirty || company.touched),
+'has-success': company.valid && (company.dirty || company.touched)
+}">
+                        <label>Company* </label>
+                        <input type="text" class="form-control" [(ngModel)]="companyV" formControlName="company"
+                          required>
+                        <div class="form-control-feedback" *ngIf="company.errors && (company.dirty || company.touched)">
+                          <p class="notification is-danger" *ngIf="company.errors.required">Company is required</p>
+                        </div>
+                      </div>
+                    </fieldset>
+
+
+
+
+                  </div>
+
+                  <div class="columns">
+                    <div class="form-group column is-6" [ngClass]="{
+    'has-danger': services.invalid && (services.dirty || services.touched),
+    'has-success': services.valid && (services.dirty || services.touched)
+  }">
+                      <label>Services*</label>
+                      <select [(ngModel)]="servicesV" class="form-control" formControlName="services">
+                        <option>Please select service</option>
+                        <option *ngFor="let d of data">{{d.id | uppercase}}</option>
+                        <option *ngFor="let d of pdata">{{d.id | uppercase}}</option>
+                      </select>
+                    </div>
+
+
+
+                    <div class="form-group column is-6" [ngClass]="{
+                      'has-danger': country.invalid && (country.dirty || country.touched),
+                      'has-success': country.valid && (country.dirty || country.touched)
+                    }">
+                      <label>Country*</label>
+                      <select [(ngModel)]="countryV" class="form-control" formControlName="country">
+                        <option value="">Please select a country</option>
+                        <option *ngFor="let lang of country_list">{{lang}}
+                        </option>
+                      </select>
+                    </div>
+
+                  </div>
+                  <!-- <div class="columns">
+                    <div class="column is-6">
+                      <div class="file has-name is-boxed">
+                        <label class="file-label">
+                          <input class="file-input" (change)="fileToUplode1($event)"  type="file" name="file1">
+                          <span class="file-cta">
+                            <span class="file-icon">
+                              <i class="material-icons">
+                                cloud_upload
+                              </i>
+                            </span>
+                            <span class="file-label">
+                              Choose a file…
+                            </span>
+                          </span>
+                          <span class="file-name">
+                            {{filename1?.name}}
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="column is-6">
+                      <div class="file has-name is-boxed">
+                        <label class="file-label">
+                          <input class="file-input" (change)="fileToUplode2($event)" type="file" name="file2">
+                          <span class="file-cta">
+                            <span class="file-icon">
+                              <i class="material-icons">
+                                cloud_upload
+                              </i>
+                            </span>
+                            <span class="file-label">
+                             Choose a file...
+                            </span>
+                          </span>
+                          <span class="file-name">
+                            {{filename2?.name}}
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+
+
+                  </div> -->
+
+
+                  <div class="form-group column is-12">
+                    <textarea class="textarea" style="height: 8rem" class="form-control" formControlName="txt"
+                      [(ngModel)]="txtV" required>
+                                </textarea>
+                  </div>
+
+
+
+                  <div class="column is-12 has-text-centered">
+                    <button type="submit" class="button is-black">Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <div class="column is-12 has-text-centered ">
+                <br> Or You Can Mail Us <br>
+                <a class="button is-black is-hidden-touch"
+                  href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=sdtpl.re@gmail.com&su=Add_subject&body=Requirment&bcc=&tf=1">
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <span class="icon is-small">
+                    <i class="material-icons" style="margin-bottom:0px ;margin-right:15px">
+                      email
+                    </i>
+                  </span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  Mail Us
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                </a>
+
+                <a style="color:white" class="button is-black   is-hidden-desktop"
+                  onclick="window.location.href = 'mailto:sdtpl.re@gmail.com';"> &nbsp;&nbsp;&nbsp;&nbsp;
+                  <span class="icon is-small">
+                    <i class="material-icons" style="margin-bottom:0px ;margin-right:15px">
+                      email
+                    </i>
+                  </span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  Mail Us
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                </a>
+              </div>
+
+
+              <!-- <form (ngSubmit)="sendMail()" [formGroup]="myform">
+                <div class="columns is-multiline">
+                  <div class="column is-6 container">
+                    <mat-form-field>
+                      <input matInput required [(ngModel)]="name" name="name" type="text" placeholder="Enter your Name">
+                    </mat-form-field>
+                  </div>
+                  <div class="column is-6 container">
+                    <mat-form-field>
+                      <input matInput [(ngModel)]="email" name="email" type="email" required
+                        placeholder="Enter your Email">
+                    </mat-form-field>
+                  </div>
+                  <div class="column is-6 container">
+                    <mat-form-field>
+                      <input matInput [(ngModel)]="pno" name="pno" type="tel" placeholder="Enter your Number">
+                    </mat-form-field>
+                  </div>
+                  <div class="column is-6 container">
+                    <mat-form-field>
+                      <input matInput [(ngModel)]="company" name="company" type="text" placeholder="Company">
+                    </mat-form-field>
+                  </div>
+                  <div class="column is-6 container">
+                    <div class="field">
+                      <div class="control">
+                        <div class="select ">
+                          <select [(ngModel)]="service" name="service">
+                            <option *ngFor="let d of data">{{d.id | uppercase}}</option>
+                            <option *ngFor="let d of pdata">{{d.id | uppercase}}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column is-6 container">
+                    <div class="field">
+                      <div class="control">
+                        <div class="select ">
+                          <select [(ngModel)]="country" name="country">
+                            <option *ngFor="let  c of country_list">{{c}}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column is-12">
+                    <textarea class="textarea" [(ngModel)]="txt" name="name" rows="5"
+                      placeholder="Write someting ..."></textarea>
+                  </div>
+
+                  <div class="column is-6 container">
+                    <div class="file">
+                      <label class="file-label">
+                        <input class="file-input" type="file" name="resume">
+                        <span class="file-cta">
+                          <span class="file-icon">
+                            <i class="fa fa-upload"></i>
+                          </span>
+                          <span class="file-label">
+                            Choose a file…
+                          </span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="column is-6 container">
+                    <div class="file">
+                      <label class="file-label">
+                        <input class="file-input" type="file" name="resume">
+                        <span class="file-cta">
+                          <span class="file-icon">
+                            <i class="fa fa-upload"></i>
+                          </span>
+                          <span class="file-label">
+                            Choose a file…
+                          </span>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-footer has-text-centered mt-10">
+                    <button class="button cta  is-black raised is-clear">Submit</button>
+                  </div>
+                </div>
+              </form> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.4837053923766!2d73.79341191428007!3d18.642277970307596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b835261cd181%3A0xd631c36db8a7dd35!2sSurface+Design+Technologies+Pvt.+Ltd.!5e0!3m2!1sen!2sin!4v1551160037944"
+  width="100%" height="300" frameborder="0" style="border:0" allowfullscreen>
+</iframe>

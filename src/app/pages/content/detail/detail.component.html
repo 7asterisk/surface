@@ -1,0 +1,21 @@
+<section *ngIf="data" class="section">
+    <h1 class="page-heading">{{data.mainHead}} </h1>
+    
+    <p class="main-text">
+    {{data.mainContent}}  
+    </p>
+   
+  <div *ngFor="let d of data.contents" class="columns">
+    <div class="column is-4">
+      <img src="{{d.url}}" alt="">
+    </div>
+    <div class="column is-8">
+      <div >
+        <h3 class="subheading" >{{d.title}}</h3>
+        <p>
+         {{d.content}}
+        </p>  
+      </div>
+    </div>
+  </div>
+</section>

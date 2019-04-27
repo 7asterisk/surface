@@ -1,0 +1,260 @@
+/*--Author: W3Layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+ --*/
+
+body {
+	margin: 0;
+	font-family: 'Ubuntu', sans-serif;
+	background: #fff;
+}
+body a,
+.slider-info a {
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+	text-decoration: none;
+	outline: none;
+	cursor:pointer !important;
+}
+
+/* //banner */
+.n-right-w3ls .form-group input.form-control.submit {
+    background: #3ee3e4;
+    border: 1px solid #3ee3e4;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.8em 1em;
+}
+.n-right-w3ls .form-group .form-control {
+    display: block;
+    width: 100%;
+    padding: 1em 1em;
+    border: 1px solid #ffffff;
+    background: #fff;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    color: #777;
+}
+.heading-agileinfo {
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 40px;
+    color: #000;
+    text-transform: capitalize;
+    position: relative;
+    margin-top: 0;
+}
+.heading-agileinfo span {
+    margin-top: 1em;
+    letter-spacing: 2px;
+    color: #3ee3e4;
+}
+/*.heading-agileinfo :after {
+    content: '';
+    background: #3ee3e4;
+    height: 2px;
+    width: 120px;
+    position: absolute;
+    top: 114%;
+    right: 2%;
+}*/
+p.vam {
+    margin: 5em 0 2em;
+}
+
+.agil_mor a {
+    color: #3ee3e4;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.section-4 {
+    padding-left: 9em;
+	text-align: right;
+}
+.section-5 {
+    padding-right: 9em;
+	text-align: left;
+}
+/* stats */
+section.agile_stats {
+	background: url(../images/bg1.jpg) no-repeat center;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	z-index: 0;
+}
+
+section.agile_stats:before {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    content: '';
+    background: rgba(12, 12, 12, 0.18);
+    z-index: -1;
+}
+
+.counter span {
+	font-size: 2em;
+	color: #3ee3e4;
+}
+
+h4.timer {
+	font-size: 3em;
+	font-weight: 600;
+	color:#fff;
+}
+/* -- Responsive code -- */
+
+@media screen and (max-width: 1600px) {}
+
+@media screen and (max-width: 1440px) {}
+
+@media screen and (max-width: 1366px) {}
+
+@media screen and (max-width: 1280px) {
+	.slider-info h3 {
+		font-size: 3.5em;
+	}
+}
+
+@media screen and (max-width: 1080px) {
+	.slider-info h3 {
+		font-size: 3em;
+	}
+	.inner-banner {
+    min-height: 280px;
+}
+.section-4 {
+    padding-left: 2em;
+}
+.section-5 {
+    padding-right: 2em;
+}
+.slider-bottom-lft h4 {
+    letter-spacing: 1px;
+}
+.navbar-light {
+    padding: 1.3em 3em;
+}
+}
+
+@media screen and (max-width: 1050px) {}
+
+@media screen and (max-width: 1024px) {
+	h3.tittle-w3ls {
+    font-size: 2.5em;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.navbar-collapse {
+		background: #000;
+		padding: 1em;
+	}
+	.dropdown-menu.show {
+		text-align: center;
+	}
+	.inner-banner {
+    min-height: 280px;
+}
+.heading-agileinfo {
+    font-size: 35px;
+}
+.copyrightbottom {
+    float: none;
+    text-align: center;
+}
+.copyrighttop {
+    float: none;
+    text-align: center;
+    margin-bottom: 1em;
+}
+.banner_bottom_left {
+    margin-top: 1em;
+}
+.caption {
+    width: 83.5%;
+}
+p.vam {
+    margin: 2em 0 2em;
+}
+.section-4 {
+    padding-left: 1em;
+	margin-top: 1.5em;
+}
+.section-5 {
+    padding-right: 1em;
+    margin-bottom: 1.5em;
+}
+.video {
+    margin-top: 1.5em;
+}
+}
+
+@media screen and (max-width: 375px) {
+	.slider-info h3 {
+		font-size: 1.6em;
+	}
+}
+
+@media screen and (max-width: 320px) {
+.inner-banner {
+    min-height: 140px;
+}
+.slider-info h3 {
+		font-size: 1.3em;
+	}
+	footer h3 {
+    font-size: 1.3em;
+}
+.heading-agileinfo {
+    font-size: 30px;
+	letter-spacing:0;
+}
+a.navbar-brand {
+    font-size: 0.7em;
+}
+.caption {
+    width: 87%;
+}
+.h4.timer {
+    font-size: 2em;
+}
+.banner_bottom_left h4 {
+    font-size: 1.2em;
+}
+figure.effect-layla figcaption::before {
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+}
+figure.effect-layla figcaption::after {
+   top: 10px;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+}
+p.vam {
+    margin: 1em 0 1em;
+}
+.events-right h4 {
+    font-size: 19px;
+}
+.navbar-light {
+    padding: 1em 0.7em;
+}
+.logo h1 a {
+    font-size: 0.7em;
+    letter-spacing: 0px;
+}
+}
+/* -- //Responsive code -- */

@@ -1,0 +1,30 @@
+<section class="container section is-small" >
+  <h2 class="title">Products</h2>
+  <div class="divider"></div>
+  <div *ngFor="let data of data">
+    <div>
+        <h3 class="title">{{data.mainHead}}</h3>
+      <div class="columns is-multiline features">
+        <div class="column is-4" *ngFor="let d of data.contents ; let i=index" style="padding-top:1.3rem;">
+          <div class=" card is-shady">
+            <div class="card-image has-text-centered">
+              <img src="{{d.url}}" alt="">
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <h4> {{d.title}}</h4>
+                <!-- <p>{{ trim(d.mainContent)}}...</p> -->
+              </div>
+              <div class="action">
+                <button class="button is-black is-small"
+                  [routerLink]="['/-/pdetail',{main: 'products',name:data.id }]">Know
+                  More</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br> <br>
+  </div>
+</section>

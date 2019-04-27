@@ -1,0 +1,247 @@
+<nav class="navbar is-fixed-top is-hidden-touch" style="padding-top:13px">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="">
+      <img src="assets/images/logo.png" style="height: 4rem; width: auto; max-height: 4rem;  ">
+    </a>
+  </div>
+</nav>
+<nav class="navbar nnavbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand navbar-end">
+
+    <a routerLinkActive="myactive" [routerLink]="['/career']" class="navbar-item">
+      CAREER
+    </a>
+    <a routerLinkActive="myactive" [routerLink]="['/our-team']" class="navbar-item">
+      OUR TEAM
+    </a>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <div class="control has-icons-right">
+          <input matInput class="input is-small" type="search" placeholder="search" [formControl]="myControl" [matAutocomplete]="auto">
+          <span class="icon is-small is-right">
+              <mat-icon (click)="routeTo()">search</mat-icon>
+          </span>
+        </div>
+        <!-- <input type="text" placeholder="" aria-label="Number" [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-icon matSuffix (click)="routeTo()">search</mat-icon> -->
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor=" let i=index ; let option of sfilteredOptions | async" [value]="option"
+            (keydown)="routeTo($event,'services' ,  option )">
+            <a [routerLink]="['/-/sdetail',{main: 'services',name: option}]">{{option}}</a>
+          </mat-option>
+          <mat-option *ngFor="let option of pfilteredOptions | async" [value]="option"
+            (keydown)="routeTo($event,'services' ,  option )">
+            <a [routerLink]="['/-/pdetail',{main: 'products',name: option}]"></a> {{option}}
+          </mat-option>
+          <mat-option *ngFor="let option of ifilteredOptions | async" [value]="option"
+            (keydown)="routeTo($event,'services' ,  option )">
+            <a [routerLink]="['/-/idetail',{main: 'industries',name: option}]"> {{option}}</a>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+</nav>
+<nav class="navbar  nnavbar  is-fixed-top" style="margin-top:53px;     " role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item is-hidden-desktop" href="">
+      <img src="assets/images/logo.png" style="height: 3rem; width: auto; max-height: 3rem; margin-left: 10px;  ">
+    </a>
+
+    <a class="is-hidden-desktop"
+      style="margin-left:auto; padding: 10px;padding-top: 30px;padding-left: 20px;color:#404040" (click)="toggle()">
+      <i style="font-size:2.1rem" *ngIf="!active" class="material-icons">
+        dehaze
+      </i>
+      <i style="font-size:2.1rem" *ngIf="active" class="material-icons">
+        clear
+      </i>
+    </a>
+  </div>
+
+  <div *ngIf="active" id="navbarBasicExample" class="navbar-menu is-active">
+    <div class="navbar-end">
+      <a routerLinkActive="myactive" (click)="toggle()" [routerLink]="[ 'home']" class="navbar-item is-secondary"
+        (click)="clickEvent()">
+        HOME
+      </a>
+      <div class="navbar-item " class="dropdown is-hoverable is-hidden-touch ">
+        <div class="dropdown-trigger">
+          <a routerLinkActive="myactive" (click)="toggle()" [routerLink]="['/-','services']" class="navbar-item">
+            <span> SERVICES</span>
+            <span class="icon is-small">
+              <i class="material-icons" aria-hidden="true">
+                keyboard_arrow_down
+              </i>
+            </span>
+          </a>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
+            <div *ngFor=" let p of sdata" class="dropdown-item">
+              <p [routerLink]="['/-/sdetail',{main: 'services',name: p}]" routerLinkActive="active">{{p | titlecase}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-item" class="dropdown is-hoverable is-hidden-touch ">
+        <div class="dropdown-trigger">
+          <a routerLinkActive="myactive" (click)="toggle()" [routerLink]="['/-','products']" class="navbar-item">
+            <span> PRODUCTS</span>
+            <span class="icon is-small">
+              <i class="material-icons" aria-hidden="true">
+                keyboard_arrow_down
+              </i>
+            </span>
+          </a>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
+            <div *ngFor=" let p of pdata" class="dropdown-item">
+              <p [routerLink]="['/-/pdetail',{main: 'products',name: p}]" routerLinkActive="active">{{p | titlecase}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar-item" class="dropdown is-hoverable is-hidden-touch">
+        <div class="dropdown-trigger">
+          <a routerLinkActive="myactive" (click)="toggle()" [routerLink]="['/-', 'industries']" class="navbar-item">
+            <span>INDUSTRIES</span>
+            <span class="icon is-small">
+              <!-- <i class="fas fas-angle-down" aria-hidden="true"></i> -->
+              <i class="material-icons" aria-hidden="true">
+                keyboard_arrow_down
+              </i>
+            </span>
+          </a>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
+            <div *ngFor=" let p of idata" class="dropdown-item">
+              <p [routerLink]="['/-/idetail',{main: 'industries',name: p}]" routerLinkActive="active">{{p | titlecase}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <a routerLinkActive="myactive" (click)="toggle()" [routerLink]="['/-','services']"
+        class="is-hidden-desktop navbar-item ">
+        SERVICES
+      </a>
+      <a routerLinkActive="myactive" (click)="toggle()" [routerLink]="['/-','products']"
+        class="is-hidden-desktop navbar-item ">
+        PRODUCTS
+      </a>
+      <a routerLinkActive="myactive" (click)="toggle()" [routerLink]="['/-', 'industries']"
+        class="navbar-item is-secondary is-hidden-desktop">
+        INDUSTRIES
+      </a>
+      <a routerLinkActive="myactive" (click)="toggle()" [routerLink]="[ '/client']" class="navbar-item is-secondary">
+        CLIENTS
+      </a>
+      <a routerLinkActive="myactive" (click)="toggle()" [routerLink]="[ '/about-us']" class="navbar-item is-secondary">
+        ABOUT US
+      </a>
+      <a routerLinkActive="myactive" (click)="toggle()" [routerLink]="[ '/contact-us']"
+        class="navbar-item is-secondary">
+        CONTACT US
+      </a>
+    </div>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end">
+      <a routerLinkActive="myactive" [routerLink]="[ 'home']" class="navbar-item is-secondary">
+        HOME
+      </a>
+      <div class="navbar-item " class="dropdown is-hoverable is-hidden-touch ">
+        <div class="dropdown-trigger">
+          <a routerLinkActive="myactive" [routerLink]="['/-','services']" class="navbar-item">
+            <span> SERVICES</span>
+            <span class="icon is-small">
+              <i class="material-icons" aria-hidden="true">
+                keyboard_arrow_down
+              </i>
+            </span>
+          </a>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
+            <div *ngFor=" let p of sdata" class="dropdown-item">
+              <p [routerLink]="['/-/sdetail',{main: 'services',name: p}]" routerLinkActive="active">
+                {{p | titlecase}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-item" class="dropdown is-hoverable is-hidden-touch ">
+        <div class="dropdown-trigger">
+          <a routerLinkActive="myactive" [routerLink]="['/-','products']" class="navbar-item">
+            <span> PRODUCTS</span>
+            <span class="icon is-small">
+              <i class="material-icons" aria-hidden="true">
+                keyboard_arrow_down
+              </i>
+            </span>
+          </a>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
+            <div *ngFor=" let p of pdata" class="dropdown-item">
+              <p [routerLink]="['/-/pdetail',{main: 'products',name: p}]" routerLinkActive="active">
+                {{p | titlecase}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar-item" class="dropdown is-hoverable is-hidden-touch">
+        <div class="dropdown-trigger">
+          <a routerLinkActive="myactive" [routerLink]="['/-', 'industries']" class="navbar-item">
+            <span>INDUSTRIES</span>
+            <span class="icon is-small">
+              <!-- <i class="fas fas-angle-down" aria-hidden="true"></i> -->
+              <i class="material-icons" aria-hidden="true">
+                keyboard_arrow_down
+              </i>
+            </span>
+          </a>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+          <div class="dropdown-content">
+            <div *ngFor=" let p of idata" class="dropdown-item">
+              <p [routerLink]="['/-/idetail',{main: 'industries',name: p}]" routerLinkActive="active">
+                {{p | titlecase}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <a routerLinkActive="myactive" [routerLink]="['/-','services']" class="is-hidden-desktop navbar-item ">
+        SERVICES
+      </a>
+      <a routerLinkActive="myactive" [routerLink]="['/-','products']" class="is-hidden-desktop navbar-item ">
+        PRODUCTS
+      </a>
+      <a routerLinkActive="myactive" [routerLink]="['/-', 'industries']"
+        class="navbar-item is-secondary is-hidden-desktop">
+        INDUSTRIES
+      </a>
+      <a routerLinkActive="myactive" [routerLink]="[ '/client']" class="navbar-item is-secondary">
+        CLIENTS
+      </a>
+      <a routerLinkActive="myactive" [routerLink]="[ '/about-us']" class="navbar-item is-secondary">
+        ABOUT US
+      </a>
+      <a routerLinkActive="myactive" [routerLink]="[ '/contact-us']" class="navbar-item is-secondary">
+        CONTACT US
+      </a>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,76 @@
+<mat-sidenav mode="side" opened>
+  <mat-accordion class="example-headers-align">
+    <mat-expansion-panel [expanded]="main === 'services'" class="mat-elevation-z0">
+      <mat-expansion-panel-header class="header">
+        <mat-panel-title>
+          SERVICES
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div style="display:grid">
+        <span class="mr-10" *ngFor="let m of sdata">
+
+
+          <ng-container *ngIf="m.id == menu; else elseTemplate">
+              <img src="../../../assets/images/illustrations/aero.svg" alt="">
+            <a style="margin-top:1rem;" [routerLink]="['/-/sdetail',{main: 'services',name: m.id}]">
+              <span class="nav-caption">{{m.id | titlecase}}</span>
+            </a>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <a style="margin-top:1rem;" [routerLink]="['/-/sdetail',{main: 'services',name: m.id}]">
+              <span class="nav-caption"> &nbsp;&nbsp; {{m.id | titlecase}}</span>
+            </a>
+          </ng-template>
+
+
+
+        </span>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="main === 'products'" class="mat-elevation-z0">
+      <mat-expansion-panel-header class="header">
+        <mat-panel-title>
+          PRODUCTS
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div style="display:grid">
+        <div class="mr-10" *ngFor="let m of pdata">
+          <ng-container *ngIf="m.id == menu; else elseTemplate">
+              <img src="../../../assets/images/illustrations/aero.svg" alt="">
+            <a [routerLink]="['/-/pdetail',{main: 'products',name: m.id}]" >
+              <span class="nav-caption">{{m.id | titlecase}}</span>
+            </a>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <a [routerLink]="['/-/pdetail',{main: 'products',name: m.id}]">
+              <span class="nav-caption"> &nbsp;&nbsp;{{m.id | titlecase}}</span>
+            </a>
+          </ng-template>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel [expanded]="main === 'industries'" class="mat-elevation-z0">
+      <mat-expansion-panel-header class="header">
+        <mat-panel-title>
+          INDUSTRIES
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div style="display:grid">
+        <span class="mr-10" *ngFor="let m of idata">
+          <ng-container *ngIf="m.id == menu; else elseTemplate">
+            <img src="../../../assets/images/illustrations/aero.svg" alt="">
+            <a [routerLink]="['/-/idetail',{main: 'industries',name: m.id}]">
+              <span class="nav-caption">{{m.id | titlecase }}</span>
+            </a>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <a [routerLink]="['/-/idetail',{main: 'industries',name: m.id}]">
+              <span class="nav-caption">&nbsp;&nbsp;{{m.id | titlecase }}</span>
+            </a>
+          </ng-template>
+        </span>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</mat-sidenav>

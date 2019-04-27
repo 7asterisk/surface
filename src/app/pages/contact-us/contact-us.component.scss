@@ -1,0 +1,28 @@
+
+
+.my-material-icons {
+    font-size: 20px; // margin-top: 10px;
+    margin-bottom: -20px;
+    margin-right: 10px;
+}
+
+.icon-box-title {
+    font-weight: 400;
+}
+
+.icon-box-text {
+    font-weight: 500;
+}
+
+.icon-box-text {
+    display: flex;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container > * {
+    width: 100%;
+}

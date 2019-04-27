@@ -1,0 +1,24 @@
+<section *ngIf="data" class="section">
+  <h1 class="page-heading">{{data.mainHead}} </h1>
+
+  <p *ngIf="data.mainContent" class="main-text">{{data.mainContent}}</p>
+
+  <mat-card class="example-card is-shady" *ngFor="let d of data.contents ; let i=index">
+    <mat-card-header>
+      <mat-card-title>{{d.title}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="columns">
+        <div class="column is-4 card-image">
+          <img src="{{d.url}}" alt="">
+        </div>
+        <div class="column is-8">
+          <p>{{d.content}}
+          </p>
+          <a *ngIf="d.title === '3D LASER SCANNING/ARM-MOUNTED' " href="https://firebasestorage.googleapis.com/v0/b/serfacedesign.appspot.com/o/1Hexagon-MI-Absolute%20Arm%202018-Brochure-A4-EN.pdf?alt=media&token=93c39a2f-9332-4ddc-9044-a10d4633abc2"> Read More... </a>
+        <a *ngIf="d.title === '3D WHITE/BLUE LIGHT SCANNER'" href="https://firebasestorage.googleapis.com/v0/b/serfacedesign.appspot.com/o/2Brochure_breuckmann_smartSCAN_EN.pdf?alt=media&token=f38d29f1-b6bf-442d-8b75-115996efdd68">Read More...</a>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>

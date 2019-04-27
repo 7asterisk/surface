@@ -1,0 +1,51 @@
+<section *ngIf="data" class="container section is-small">
+  <h1 class="page-heading">{{data.mainHead}} </h1>
+  <p *ngIf="data.mainContent" class="main-text">{{data.mainContent}}
+  </p>
+  <div class=" column is-10" *ngFor="let d of data.contents; let i=index">
+    <ng-container *ngIf="d.content && d.url; else elseTemplate">
+      <h3 class="subheading">{{d.title}}</h3>
+      <div *ngIf="d.title">
+        <hr>
+      </div>
+      <div class="columns">
+        <div class="column is-4 card-image has-text-centered">
+          <img src="{{d.url}}" alt="">
+        </div>
+        <div class="column is-8">
+          <div>
+
+            <p>
+              {{d.content}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <ng-container *ngIf="d.url; else elseTemplate2">
+        <div class=" has-text-centered is-size-5"><span>{{d.title}}</span></div>
+        <div class="has-text-centered ">
+          <img style="max-height:20rem" src="{{d.url}}" alt="">
+        </div><br>
+      </ng-container>
+      <ng-template #elseTemplate2>
+        <div>
+          <h3 *ngIf="d.title" class="subheading">{{d.title}}</h3>
+          <div *ngIf="!d.content">
+            <hr>
+          </div>
+
+          <div class="column is-8 is-offset-2">
+            <div>
+              <p *ngIf="d.content">
+                {{d.content}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </ng-template>
+  </div>
+</section>
+<br><br><br>

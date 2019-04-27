@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    margin-top: 100px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+
+p {
+    white-space: pre-wrap;
+    text-align: justify;
+}
+
+p {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.button.is-black:hover,
+.button.is-black.is-hovered {
+    background-color: #fff;
+    border-color: transparent;
+    color: #404040;
+    border-color: #404040;
+}
+.button.is-black{
+    background-color: #404040;
+    color: #fff;
+}
+
+
+
+.button.is-blue:hover,
+.button.is-blue.is-hovered {
+    background-color: #fff;
+    border-color: transparent;
+    color: #00a1e6;
+    border-color: #00a1e6;
+}
+
+.is-blue {
+    color: #fff;
+    background-color: #00a1e6;
+}
+
+
+.is-shady {
+    -webkit-box-shadow: 10px 13px 7px -8px rgba(0,0,0,0.13);
+    -moz-box-shadow: 10px 13px 7px -8px rgba(0,0,0,0.13);
+    box-shadow: 10px 13px 7px -8px rgba(0,0,0,0.13);
+
+    animation: flyintoright .4s backwards;
+    // background: #fff;
+    // box-shadow: rgba(0, 0, 0, 0) 0 0px 0;
+    border-radius: 4px;
+    // display: inline-block;
+    // margin: 10px;
+    position: relative;
+    transition: all .2s ease-in-out;
+    }
+    .is-shady:hover {
+    box-shadow: 0 10px 16px rgba(0, 0, 0, .13), 0 6px 6px rgba(0, 0, 0, .19);
+    }
+    .card-image>img{
+        height: 14rem;
+    }
+
+
+    .divider{height:5px;border-radius:50px;background:#72cdee;width:90px;
+    margin-bottom: 10px;
+    }

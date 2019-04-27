@@ -1,0 +1,80 @@
+.myactive {
+    background-color: #404040;
+    color: white;
+}
+
+// ::ng-deep .mat-input-underline {
+//     display: none;
+// }
+
+.myactive span {
+    background-color: #404040;
+    color: white;
+}
+
+.dropdown-item {
+    display: block;
+    width: 200px;
+}
+
+.dropdown-item p {
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    box-shadow: none;
+
+}
+
+.myactive:hover {
+    background-color: #404040;
+    color: white;
+}
+
+.navbar-brand .myactive:hover {
+    background-color: #404040;
+    color: white;
+}
+
+.example-full-width {
+    width: 9rem;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.dropdown {
+    display: block;
+    // margin-top: auto;
+}
+
+.navbar-item>span {
+    // height: rem;
+}
+
+.navbar-item {
+
+    height: fit-content;
+    margin-top: 12px;
+}
+
+.navbar {
+    -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.12);
+    font-weight: 300;
+}
+
+.nnavbar {
+    margin-left: 300px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .nnavbar {
+        margin-left: 0px;
+    }
+}
+
+p {
+    text-align: left;
+}

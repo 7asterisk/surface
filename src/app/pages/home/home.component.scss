@@ -1,0 +1,133 @@
+.hero.is-light {
+    // background-image: url('../../../assets/images/illustrations/vision.svg');
+    // background-repeat: no-repeat;
+    // background-size: 100% auto;
+    background-color: #fcfcfa;
+}
+
+hero-body {
+
+
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    // padding: 1rem 1.5rem;
+}
+
+.subtitle {
+    margin: 0 0 2em 0;
+    font-size: 2rem;
+}
+
+.fancy {
+    line-height: 0.5;
+    text-align: center;
+}
+
+.fancy span {
+    display: inline-block;
+    position: relative;
+}
+
+.fancy span:before,
+.fancy span:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid rgb(192, 192, 192);
+    border-top: 1px solid rgb(192, 192, 192);
+    top: 0;
+    width: 600px;
+}
+
+.fancy span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.fancy span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+
+.clean-bg-symbol {
+    position: absolute;
+    font-weight: bolder;
+    top: -25px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    font-size: 10rem;
+    z-index: 0;
+    opacity: 0.1;
+    color: #999;
+    width: 150px;
+}
+
+
+.carousel-caption {
+    position: absolute;
+    top: 5%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: left;
+}
+
+.card-image>img {
+    height: 300px;
+    max-height: 300px;
+    margin-left: -30px;
+}
+
+.mission {
+    font-family: 'Unna', serif;
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+    font-size: 2.3rem;
+    color: #292277;
+    // color: #fff;
+}
+
+.main-content {}
+
+.button.is-black:hover,
+.button.is-black.is-hovered {
+    background-color: #fff;
+    border-color: transparent;
+    color: black;
+    border-color: black;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .card-image>img {
+        margin-left: auto;
+    }
+
+    .h2-responsive {
+        font-size: 100%;
+    }
+
+    .button.is-black {
+        font-size: 10px;
+    }
+
+    
+.fancy span:before,
+.fancy span:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid rgb(192, 192, 192);
+    border-top: 1px solid rgb(192, 192, 192);
+    top: 0;
+    width: 50%;
+}
+
+}

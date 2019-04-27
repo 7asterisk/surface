@@ -1,0 +1,14 @@
+.button.is-black{
+font-weight: 500;
+}
+.button.is-black:hover, .button.is-black.is-hovered {
+    background-color: #fff;
+    border-color: transparent;
+    color: black;
+    border-color: black;
+}
+.media.icon-box .media-content .content p .icon-box-title {
+    color: #444F60;
+    font-size: 1.1rem;
+    font-weight: 500;
+}

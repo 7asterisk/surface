@@ -1,0 +1,64 @@
+<br>
+<h3>Place Your Order</h3>
+<br>
+<mat-horizontal-stepper class="column is-10"  #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+      </mat-form-field> &nbsp;&nbsp;&nbsp;
+      <mat-form-field>
+        <input matInput placeholder="Company" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button class="button btn-align-md primary-btn raised" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button class="button btn-align-md primary-btn raised" matStepperPrevious>Back</button> &nbsp;&nbsp;&nbsp;
+        <button mat-button class="button btn-align-md primary-btn raised" matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Payment</ng-template>
+    <br><br>
+    <button mat-button class="button btn-align-md is-success raised">Make Payment</button>
+    <br><br>
+    <div>
+      <button mat-button class="button btn-align-md primary-btn raised" matStepperPrevious>Back</button>&nbsp;&nbsp;&nbsp;
+      <button mat-button class="button btn-align-md primary-btn raised" (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{data.contents[id].title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="columns">
+      <div class="column is-4">
+        <img src="{{data.contents[id].url}}" alt="">
+      </div>
+      <div class="column is-8">
+        <p>
+          {{data.contents[id].content}}
+        </p>
+      </div>
+    </div>
+  </mat-card-content>
+  <!-- <mat-card-actions class="has-text-centred">
+    <button mat-button class="button btn-align-md primary-btn raised"
+      [routerLink]="['/-/order',{main: 'products',name:name, id: i }]">Order Now</button>
+  </mat-card-actions> -->
+</mat-card>

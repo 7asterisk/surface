@@ -1,0 +1,44 @@
+[
+    {
+        "services": [
+            {
+                "cmm": {
+                    "mainHead": "CMM Inspection services",
+                    "mainContent": "CMM Inspection is the process of taking multiple sinle point measurements of 3D coordinates t o build a geometry.we have used several types of CMM Inspection that have different uses depending on the application.",
+                    "contents": [
+                        {
+                            "title": "CONTACT",
+                            "content": "Contact inspection is a process in which physical contact is made between the object to be inspected and the measurement device. Typically contact is achieved using a mechanical probe or other device that touches item, and allows the inspection procedure to occur. Types of contact inspection"
+                        },
+                        {
+                            "title": "NON CONTACT",
+                            "content": "Non-contact inspection is a technique in which we use a sensor to measure or gauge the desired features of the object. Types of non contact"
+                        },
+                        {
+                            "title": "3D COMPARISION INSPECTION",
+                            "content": "A 3D analysis of surfaces as well as a 2D analysis of sections or points can be implemented in the software. CAD-based generation of primitives such as lines, planes, circles or cylinders is also possible ."
+                        }
+                    ]
+                },
+                "proto": {
+                    "mainHead": "PROTO MAKING",
+                    "mainContent": "We specialize in manufacturing high quality aesthetic prototypes we use rapid manufacturing techniques like High speed machining and 3D printing to deliver prototypes within a very short turn-around time.                     Prototypes can be fully functional and as per final design intent of customer      For such prototypes, we support customers for end-to-end processes like PCB design, PCB fabrication, machining, Surface coating (plating or vacuum metalizing), Final assembly.",
+                    "contents": [
+                        {
+                            "title": "CONTACT",
+                            "content": "Contact inspection is a process in which physical contact is made between the object to be inspected and the measurement device. Typically contact is achieved using a mechanical probe or other device that touches item, and allows the inspection procedure to occur. Types of contact inspection"
+                        },
+                        {
+                            "title": "NON CONTACT",
+                            "content": "Non-contact inspection is a technique in which we use a sensor to measure or gauge the desired features of the object. Types of non contact"
+                        },
+                        {
+                            "title": "3D COMPARISION INSPECTION",
+                            "content": "A 3D analysis of surfaces as well as a 2D analysis of sections or points can be implemented in the software. CAD-based generation of primitives such as lines, planes, circles or cylinders is also possible ."
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+]

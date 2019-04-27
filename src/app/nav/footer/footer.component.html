@@ -1,0 +1,80 @@
+<footer class="footer footer-dark" style="position:initial;">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-2 is-offset-3">
+        <div class="footer-column">
+          <div class="footer-header">
+            <h5>PRODUCTS</h5>
+          </div>
+          <ul class="link-list">
+            <li *ngFor="let d of pdata"> <a style="font-size: 14.4px" [routerLink]="['/-/pdetail',{main: 'products',name: d.id}]"
+                routerLinkActive="active">
+                {{d.id | titlecase}}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="footer-column">
+          <div class="footer-header">
+            <h5 class="footer-header">SERVICES</h5>
+          </div>
+          <ul class="link-list">
+            <li *ngFor="let d of sdata">
+              <a style="margin-top:1rem; font-size: 14.4px" [routerLink]="['/-/sdetail',{main: 'services',name: d.id}]"
+                routerLinkActive="active">
+                {{d.id | titlecase}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="column is-2">
+        <div class="footer-column">
+          <div>
+            <h5 class="is-size-5">INDUSTRIES</h5>
+          </div>
+          <ul class="link-list">
+            <li *ngFor="let d of idata">
+              <a style="font-size: 14.4px" [routerLink]="['/-/idetail',{main: 'industries',name: d.id}]" routerLinkActive="active">
+                {{d.id | titlecase}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="column is-3">
+        <div class="footer-column">
+          <div>
+            <h5 class="footer-header">SURFACE DESIGN <br> Technologies Pvt. Ltd.</h5>
+            <ul class="contect-secton">
+              <li>
+                <p>
+                  <span class="icon-box-title">
+                    Sr. No. 128/2,Gala 5 & 18,<br>
+                    F Wing, Steel India Complex<br>
+                    Mohan Nagar, Telco Road, Chinchwad, Pune-411019.
+                  </span><br>
+                  <span class="icon-box-text"> <i class="material-icons">
+                      call
+                    </i>
+                    <span>
+                      020 2747 6117
+                    </span>
+                    <br>
+                  </span>
+                  <span class="icon-box-text">
+                    <i class="material-icons">
+                      email
+                    </i>
+                    <span>
+                      info@surfacedesigntech.com
+                    </span>
+                  </span>
+                </p>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

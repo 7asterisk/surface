@@ -1,0 +1,56 @@
+.testo{
+    font-family: 'Alex Brush', cursive;
+}
+.speeker{
+    margin-right: 4rem;
+    text-align: right;
+    font-weight: 700;
+    margin-bottom: 4rem;
+}
+.tesomonial{
+    height: 600px;
+    margin-top: 20px;
+    overflow-y: scroll;
+    position: fixed;
+}
+
+.client{
+  margin-left:30%;
+}
+
+.col-2{
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .client{
+    margin-left:0;
+  }
+  .tesomonial{
+    height: auto;
+    margin-top: 20px;
+    overflow-y: inherit;
+    position: inherit
+}
+  
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

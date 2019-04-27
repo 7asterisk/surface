@@ -1,0 +1,293 @@
+<div class="columns">
+  <div class="column is-3">
+
+    <mat-sidenav mode="side" opened>
+      <mat-accordion class="example-headers-align">
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header (click)=" getMenu('services')">
+            <mat-panel-title>
+              Services
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div style="display:grid">
+            <a class="mr-10" *ngFor="let m of menu" (click)="getData(m)">
+              <span class="nav-caption"> {{m}}</span>
+            </a>
+            <a (click)="add= ! add">
+              <mat-icon>add</mat-icon>
+            </a>
+            <input *ngIf="add" #docId (keydown)="addDoc($event,docId.value)" type="text" placeholder="short  name">
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header (click)="getMenu('products')">
+            <mat-panel-title>
+              Products
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div style="display:grid">
+            <a class="mr-10" *ngFor="let m of menu" (click)="getData(m)">
+              <span class="nav-caption"> {{m}}</span>
+            </a>
+            <a (click)="add= ! add">
+              <mat-icon>add</mat-icon>
+            </a>
+            <input *ngIf="add" #docId (keydown)="addDoc($event,docId.value)" type="text" placeholder="short  name">
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header (click)="getMenu('industries')">
+            <mat-panel-title>
+              Industries
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div style="display:grid">
+            <a class="mr-10" *ngFor="let m of menu" (click)="getData(m)">
+              <span class="nav-caption"> {{m}}</span>
+            </a>
+            <a (click)="add= ! add">
+              <mat-icon>add</mat-icon>
+            </a>
+            <input *ngIf="add" #docId (keydown)="addDoc($event,docId.value)" type="text" placeholder="short  name">
+          </div>
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header (click)="FeedbackForm()">
+            <mat-panel-title>
+              Feedback
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header (click)="aboutForm()">
+            <mat-panel-title>
+              About us
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header (click)="clintForm()">
+            <mat-panel-title>
+              Client
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </mat-sidenav>
+  </div>
+
+
+  <!-- aboutForm -->
+  <div *ngIf="activeabout" class="column is-9">
+    <br>
+    <br>
+    <form class="example-form">
+      <div class="columns is-vcentered">
+        <div class="column is-8">
+          <mat-form-field class="example-full-width">
+            <textarea matInput cols="5" [(ngModel)]="aboutTxtToEdit" name="content" placeholder=""></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <button mat-raised-button class="button btn-align-md primary-btn raised" (click)="addAbout()">Update</button>
+      <span *ngIf="loder">updating...</span>
+    </form>
+
+
+    <mat-card class="column  is-10 is-offset-1  revealOnScroll delay-1 animated fadeInLeft" data-animation="fadeInLeft">
+      <mat-card-header>About txt</mat-card-header>
+      <mat-card-content class="card-text">
+        <p>{{aboutTxt}}</p>
+      </mat-card-content>
+      <mat-card-actions class="has-text-centered">
+        <button mat-button class="button btn-align-md primary-btn raised" (click)="editAbout('a')"> Edit </button>
+      </mat-card-actions>
+    </mat-card>
+
+
+    <mat-card class="column  is-10 is-offset-1  revealOnScroll delay-1 animated fadeInLeft" data-animation="fadeInLeft">
+      <mat-card-header>Milestone</mat-card-header>
+      <mat-card-content class="card-text">
+        <p>{{milestone}}</p>
+      </mat-card-content>
+      <mat-card-actions class="has-text-centered">
+        <button mat-button class="button btn-align-md primary-btn raised" (click)="editAbout('m')"> Edit </button>
+      </mat-card-actions>
+    </mat-card>
+
+
+
+  </div>
+
+
+
+  <!-- feedbackform -->
+
+  <div *ngIf="activefeedback" class="column is-9">
+    <br>
+    <br>
+    <form class="example-form">
+      <div class="columns is-vcentered">
+        <div class="column is-8">
+          <mat-form-field class="example-full-width">
+            <textarea matInput cols="5" [(ngModel)]="fbTxt" name="content" placeholder="given feedback"></textarea>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput [(ngModel)]="fbFrom" name="content" placeholder="from">
+          </mat-form-field>
+        </div>
+      </div>
+      <button mat-raised-button class="button btn-align-md primary-btn raised" (click)="addfeedback()">Update</button>
+      <span *ngIf="loder">updating...</span>
+    </form>
+
+
+    <mat-card *ngFor="let fb of feedback; let i=index"
+      class="column  is-10 is-offset-1  revealOnScroll delay-1 animated fadeInLeft" data-animation="fadeInLeft">
+      <mat-card-content class="card-text">
+        <p>{{fb.fbTxt}}</p>
+        <b>{{fb.fbFrom}}</b>
+      </mat-card-content>
+      <mat-card-actions class="has-text-centered">
+        <button mat-button class="button btn-align-md primary-btn raised" (click)="editFeedback(i)"> Edit </button>
+        <button mat-button class="button btn-align-md primary-btn raised" (click)="deleteFeedback(i)"> Delete </button>
+      </mat-card-actions>
+    </mat-card>
+
+
+
+
+  </div>
+
+
+  <!-- add in old content -->
+  <div *ngIf="!addNew && !activefeedback && !activeabout" class="column is-9">
+    <br>
+    <div class="columns">
+      <div class="has-text-centered column">
+        <h3>{{currentMenu | uppercase }}</h3>
+        <input type="text" [(ngModel)]="changedId">
+        <button mat-icon-button class="button btn-align-md primary-btn raised" (click)="changeDocID()">
+          <i class="material-icons">
+            create
+          </i>
+        </button>
+      </div>
+      <div class="column is-2 has-text-centered">
+        <button mat-raised-button class="button btn-align-md primary-btn raised" (click)="deleteDoc()">Delete
+          All</button>
+      </div>
+    </div>
+
+    <div *ngIf="data" class="columns">
+      <div class="column is-10 is-offset-1  ">
+        <br>
+        <form class="example-form">
+          <div class="columns is-vcentered">
+            <div class="column is-8">
+              <mat-form-field class="example-full-width">
+                <input [(ngModel)]="title" name="title" matInput placeholder="Add Title">
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <textarea matInput cols="5" [(ngModel)]="content" name="content" placeholder="Add Content"></textarea>
+              </mat-form-field>
+            </div>
+            <div class="column is-4">
+              <div *ngIf="Url">
+                <button mat-icon-button class="button btn-align-md primary-btn raised" (click)="Url = ''">
+                  <i class="material-icons">
+                    clear
+                  </i>
+                </button>
+                <img src="{{Url}}" alt="">
+              </div>
+              <input *ngIf="this.position != -1" type="file" (change)="fileToUplode($event)">
+            </div>
+          </div>
+          <button mat-raised-button class="button btn-align-md primary-btn raised"
+            (click)="updateData()">Update</button> <span *ngIf="loder">updating...</span>
+        </form>
+      </div>
+    </div>
+
+    <br><br>
+    <br><br>
+    <mat-card *ngIf="data" class="column  is-10 is-offset-1  revealOnScroll delay-1 animated fadeInLeft"
+      data-animation="fadeInLeft">
+      <mat-card-header>
+        <mat-card-title class="card-text page-heading">{{data.mainHead}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-text">
+        <p>{{data.mainContent}}</p>
+      </mat-card-content>
+      <mat-card-actions class="has-text-centered">
+        <button mat-button class="button btn-align-md primary-btn raised" (click)="mainEdit()"> Edit </button>
+        <!-- <button mat-button class="button btn-align-md primary-btn raised"> Delete </button> -->
+      </mat-card-actions>
+    </mat-card>
+
+    <br>
+
+    <div class="container">
+      <div *ngIf="data">
+        <div *ngFor="let d of data.contents;  let i=index "
+          class="column  is-12 revealOnScroll delay-1 animated fadeInLeft" data-animation="fadeInLeft">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title class="card-text">{{d.title}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="card-text">
+              <div class="columns">
+                <div class="column is-4">
+                  <img src="{{d.url}}" alt="">
+
+                </div>
+                <div class="column is-8">
+                  <p> {{d.content}} </p>
+                </div>
+              </div>
+            </mat-card-content>
+            <mat-card-actions class="has-text-centered">
+              <button mat-button class="button btn-align-md primary-btn raised" (click)="editContents(i)"> Edit
+              </button>
+              <button mat-button class="button btn-align-md primary-btn raised" (click)="deleteContent(i)"> Delete
+              </button>
+              <button mat-icon-button *ngIf="contentLen > i  + 1">
+                <mat-icon aria-label="Example icon-button with a heart icon" (click)="swapDown(i)">vertical_align_bottom
+                </mat-icon>
+              </button>
+              <button mat-icon-button *ngIf="i > 0">
+                <mat-icon aria-label="Example icon-button with a heart icon" (click)="swapUp(i)">vertical_align_top
+                </mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- add new doc -->
+  <div *ngIf="addNew && !activefeedback && !activeabout" class="column is-9">
+    <div class="column is-10  is-offset-1">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="newTitle" name="newTitle" matInput placeholder="Add Main Title">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <textarea matInput cols="5" [(ngModel)]="newContent" name="content" placeholder="Add Main Content"></textarea>
+        </mat-form-field>
+        <button mat-raised-button class="button btn-align-md primary-btn raised" (click)="addNewDoc()">ADD</button>
+      </form>
+    </div>
+  </div>
+</div>
+<br><br>
