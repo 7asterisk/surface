@@ -96,10 +96,11 @@ export class ContactUsComponent implements OnInit {
   }
 
   fileToUplode2(event) {
-    const id = Math.random().toString(36).substring(2);
-    this.ref2 = this.storage.ref(id);
-
     this.filename2 = event.target.files[0];
+    const id = Math.random().toString(36).substring(2);
+    this.ref2 = this.storage.ref('requirment_' + this.filename2.name);
+    console.log(this.filename2.name);
+    
     // this.ref = this.storage.ref(this.filename2);
   }
 
@@ -136,7 +137,7 @@ export class ContactUsComponent implements OnInit {
   onSubmit() {
     if (this.myform.valid) {
       // console.log(this.nameV + ' ' + this.emailV + ' ' + this.pnoV + ' ' + this.companyV + ' ' + this.countryV + ' ' + this.servicesV);
-      console.log(this.txtV);
+      // console.log(this.txtV);
 
       this.dataService.sendMail(
         this.txtV, this.nameV, this.emailV, this.pnoV, this.companyV, this.countryV, this.servicesV

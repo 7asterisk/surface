@@ -2,7 +2,16 @@
         <div class="columns">
 
                 <div style="margin-left:1rem; background-color: #fff;" class="column is-3 tesomonial">
-                        <br><br>
+                        <br>
+                        <div>
+                                <div style="text-align: -webkit-center;">
+                                        <h1 class="has-text-centred" class="title is-4   is-spaced">
+                                                TESTIMONIALS
+                                        </h1>
+                                        <div class="has-text-centred" class="divider"></div>
+                                </div>
+                        </div>
+                        <br>
                         <div *ngFor="let fb of feedback">
                                 <p class=" is-size-4  testo">
                                         {{fb.fbTxt}}
@@ -22,87 +31,9 @@
                                         </div>
                                         <br>
                                         <div class="columns row is-vecentred is-multiline">
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/370847-tata-motors-wpcf_100x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/OEM/hero.PNG">
-                                                </div>
 
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/volkswagen-cars-logo-emblem-wpcf_109x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/2000px-General_Electric_logo.svg_-wpcf_100x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/Bajaj-logo-wpcf_94x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/green_yellow_vert_logo-wpcf_139x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/isuzu-cars-logo-emblem-wpcf_138x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/force-wpcf_133x100.jpg">
-                                                </div>
-
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/cummins-logo-wpcf_106x100.jpg">
-                                                </div>
-
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/C10000554-wpcf_133x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/arde-wpcf_117x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/1024px-Mahindra__Mahindra_Logo.svg_.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/04FCA-master675.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/Naval-Dockyard-Visakhapatnam-Logo-wpcf_100x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/logo1-wpcf_177x100.jpg">
-                                                </div>
-
-
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/Kirloskar_Group_Logo.svg_-wpcf_106x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/Godrej.png">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/whirlpool.png">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/OEM/1.PNG"></div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/OEM/2.PNG"></div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/OEM/3.PNG"></div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/OEM/4.PNG"></div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/OEM/5.PNG"></div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/OEM/6.PNG"></div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/OEM/7.PNG"></div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/OEM/17.PNG"></div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/peugeot.jpg">
-                                                </div>
-
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/forbes.png">
+                                                <div *ngFor="let cl of client; let i=index" class="col-2 ">
+                                                        <img alt="" class="aligncenter img-responsive" src="{{cl}}">
                                                 </div>
                                         </div>
                                 </div>
@@ -119,116 +50,9 @@
                                         </div>
                                         <br>
                                         <div class="columns row is-vecentred is-multiline">
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/download.png">
+                                                <div *ngFor="let cl of client1; let i=index" class="col-2 ">
+                                                        <img alt="" class="aligncenter img-responsive" src="{{cl}}">
                                                 </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/magna_cosma_international.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/magnetimarelli.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/itw.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/Saint gobain.png">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/Uno-Minda-Group-Logo.png">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/Varroc.png">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/1.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/Emerson_Electric_Company.svg_.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/LT-logo.svg_-wpcf_100x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/2.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/3.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/4.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/5.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/6.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/7.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/lear.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/8.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/clientlogo12-wpcf_187x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/9.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/10.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/11.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/12.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/13.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/14.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/15.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/16.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/17.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/18.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/19.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/20.PNG">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/bosch.png">
-                                                </div>
-
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/Lumax-wpcf_147x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/Johnson_Controls.svg_.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/clients/DEF008LOGO-wpcf_175x100.jpg">
-                                                </div>
-                                                <div class="col-2 "><img alt="" class="aligncenter img-responsive"
-                                                                src="../../../assets/images/logos/SUPPLIERS/greaves-cotton-squarelogo.png">
-                                                </div>
-
                                         </div>
                                 </div>
                         </section>

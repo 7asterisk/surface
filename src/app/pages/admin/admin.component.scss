@@ -19,3 +19,15 @@ textarea.mat-input-element {
 .mr-10 {
     margin-top: 1rem;
 }
+.file.is-boxed .file-cta {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: auto;
+    padding: 2em 2em;
+}
+.notification {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 0;
+    position: relative;
+}

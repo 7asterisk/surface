@@ -45,13 +45,106 @@ export class AdminComponent implements OnInit {
   aboutTxtToEdit;
   editAboutOf: string;
   contentLen: any;
+  activeclient = false;
+  ref1: AngularFireStorageReference;
+  task1: AngularFireUploadTask;
+  filename1: any;
+  downloadURL1: Observable<any>;
+  Url1: any;
+  clientPosition: any;
+  client: any;
+  client1: any;
+  clientPosition1: number;
   constructor(public dataService: DataService, private storage: AngularFireStorage, private db: AngularFirestore) {
     this.feedbackCollection = this.db.collection('feedback');
     this.getFeedback();
     this.getAbout();
+    this.getClients();
   }
   ngOnInit() {
   }
+
+  getClients() {
+    this.dataService.getxyz('oms', 'clients').subscribe(item => {
+      console.log(item);
+      this.client = item;
+      this.client = this.client.cl;
+      this.clientPosition = this.client.length;
+    });
+    this.dataService.getxyz('reference', 'clients').subscribe(item => {
+      console.log(item);
+      this.client1 = item;
+      this.client1 = this.client1.cl;
+      this.clientPosition1 = this.client1.length;
+    });
+  }
+
+  clintForm() {
+    this.activeclient = true;
+    this.activefeedback = false;
+    this.activeabout = false;
+  }
+
+  addClient(event, n) {
+    const id = Math.random().toString(36).substring(2);
+    this.ref1 = this.storage.ref('client' + id);
+    this.filename1 = event.target.files[0];
+    this.task1 = this.ref1.put(this.filename1);
+    this.task1.snapshotChanges().pipe(
+      finalize(() => {
+        this.downloadURL1 = this.ref1.getDownloadURL();
+        this.downloadURL1.subscribe(url => {
+          this.Url1 = url.toString();
+          console.log(this.Url1);
+
+          if (n === 'o') {
+            const cl = { cl: [] };
+            this.client[this.clientPosition] = this.Url1;
+            cl.cl = this.client;
+            this.clientPosition = this.client.length;
+            this.dataService.update(cl, 'oms', 'clients');
+          } if (n === 'r') {
+            const cl = { cl: [] };
+            this.client1[this.clientPosition1] = this.Url1;
+            cl.cl = this.client1;
+            this.clientPosition1 = this.client1.length;
+            this.dataService.update(cl, 'reference', 'clients');
+
+          }
+
+        });
+      })
+    )
+      .subscribe();
+  }
+  deleteClient(i, n) {
+    if (n === 'o') {
+      const d = this.client.splice(i, 1);
+      console.log(d);
+      console.log(this.client);
+      this.storage.storage.refFromURL(d[0]).delete();
+
+      const cl = { cl: [] };
+      cl.cl = this.client;
+      this.clientPosition = this.client.length;
+
+      this.dataService.update(cl, 'oms', 'clients');
+
+    } else if (n === 'r') {
+      const d = this.client1.splice(i, 1);
+      this.storage.storage.refFromURL(d[0]).delete();
+
+      const cl = { cl: [] };
+      cl.cl = this.client1;
+      this.clientPosition1 = this.client.length;
+
+      this.dataService.update(cl, 'reference', 'clients');
+
+    }
+
+  }
+
+
 
   changeDocID() {
     const d = this.data;
@@ -95,7 +188,6 @@ export class AdminComponent implements OnInit {
     this.feedback[this.feedbackPosition] = this.feedbacktoAdd;
     fb.fb = this.feedback;
     console.log(fb);
-
     this.dataService.update(fb, 'hrtAP0DNep0GiCwDeIXg', 'feedback');
     this.feedbackPosition = this.feedback.length;
     this.fbFrom = '';
@@ -105,6 +197,7 @@ export class AdminComponent implements OnInit {
   FeedbackForm() {
     this.activefeedback = true;
     this.activeabout = false;
+    this.activeclient = false;
   }
 
 
@@ -140,6 +233,7 @@ export class AdminComponent implements OnInit {
   }
   aboutForm() {
     this.activeabout = true;
+    this.activeclient = false;
     this.activefeedback = false;
   }
   getMenu(main) {

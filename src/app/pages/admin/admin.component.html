@@ -84,6 +84,91 @@
   </div>
 
 
+
+  <!-- client form -->
+
+  <div *ngIf="activeclient" class="column is-9">
+    <br>
+    <br>
+    <section class="section ">
+      <div class="container">
+        <div style="text-align: -webkit-center;">
+          <h1 class="has-text-centred" class="title is-4   is-spaced">
+            OEM REFERENCE
+          </h1>
+          <div class="has-text-centred" class="divider"></div>
+        </div>
+        <br>
+        <div class="columns row is-vecentred is-multiline">
+
+          <div *ngFor="let cl of client; let i=index" class="col-2 ">
+            <div class="notification">
+              <button class="delete" (click)="deleteClient(i,'o')"></button>
+              <img alt="" class="aligncenter img-responsive" src={{cl}}>
+            </div>
+          </div>
+
+
+
+          <div class="file is-boxed">
+            <label class="file-label">
+              <input class="file-input" (change)="addClient($event,'o')" type="file" name="resume">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <mat-icon>add</mat-icon>
+                </span>
+              </span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section ">
+      <div class="container">
+        <div style="text-align: -webkit-center;">
+          <h1 class="has-text-centred" class="title is-4   is-spaced">
+            SUPPLIERS REFERENCE
+          </h1>
+          <div class="has-text-centred" class="divider"></div>
+        </div>
+        <br>
+
+
+
+        <div class="columns row is-vecentred is-multiline">
+
+
+          <div *ngFor="let cl of client1; let i=index" class="col-2 ">
+            <div class="notification">
+              <button class="delete" (click)="deleteClient(i,'r')"></button>
+              <img alt="" class="aligncenter img-responsive" src={{cl}}>
+            </div>
+          </div>
+
+
+
+
+          <div class="file is-boxed">
+            <label class="file-label">
+              <input class="file-input" (change)="addClient($event,'r')" type="file" name="resume">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <mat-icon>add</mat-icon>
+                </span>
+              </span>
+            </label>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+
   <!-- aboutForm -->
   <div *ngIf="activeabout" class="column is-9">
     <br>
