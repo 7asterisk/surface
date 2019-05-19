@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   constructor(public dataService: DataService) {
     dataService.getDocId('services').subscribe((data) => {
       this.data = data;
-      console.log(data);
+      // console.log(data);
     });
   }
   trim(d) {

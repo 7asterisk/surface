@@ -32,6 +32,11 @@ export class DataService {
   private itemDoc: AngularFirestoreDocument<any>;
   item: Observable<any>;
   feedback: Observable<any[]>;
+  body: {
+    ftype: string, txt: any; nameV: any; emailV: any;
+    pnoV: any; companyV: any; countryV: any; servicesV: any; url1: any; url2: any;
+  };
+  reumebody: { ftype: string; txt: any; nameV: any; emailV: any; pnoV: any; companyV: any; url1: any; };
   constructor(public db: AngularFirestore, public afs: AngularFirestore, private http: HttpClient) {
     // db.collection('xyz').valueChanges();
   }
@@ -41,16 +46,45 @@ export class DataService {
   //  const httpParams = new HttpParams().set('file',file); 
   //   this.http.post('',file)
   // }
+  sendResume(txt, nameV, emailV, pnoV, companyV, url1) {
 
-
-  sendMail(txt, nameV, emailV, pnoV, companyV, countryV, servicesV) {
-    const body = {
-      txt: txt, nameV: nameV, emailV: emailV, pnoV: pnoV, companyV: companyV, countryV: countryV, servicesV: servicesV
+    this.reumebody = {
+      ftype: 'resume',
+      txt: txt, nameV: nameV, emailV: emailV, pnoV: pnoV, companyV: companyV,
+      url1: url1
     };
-    const url = `https://us-central1-serfacedesign.cloudfunctions.net/sendMail`;
-    const headers = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })};
 
-    return this.http.post(url, body, headers)
+    console.log(this.reumebody);
+
+    const url = `https://us-central1-serfacedesign.cloudfunctions.net/sendMail`;
+    const headers = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }) };
+
+    return this.http.post(url, this.reumebody, headers)
+      .toPromise()
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+
+
+  sendMail(txt, nameV, emailV, pnoV, companyV, countryV, servicesV, url1, url2) {
+
+    this.body = {
+      ftype: 'request',
+      txt: txt, nameV: nameV, emailV: emailV, pnoV: pnoV, companyV: companyV,
+      countryV: countryV, servicesV: servicesV, url1: url1, url2: url2
+    };
+
+    console.log(this.body);
+
+    const url = `https://us-central1-serfacedesign.cloudfunctions.net/sendMail`;
+    const headers = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }) };
+
+    return this.http.post(url, this.body, headers)
       .toPromise()
       .then(res => {
         console.log(res);
@@ -63,6 +97,7 @@ export class DataService {
   setmain(main) {
     this.i.next(main);
   }
+
   getmain(): Observable<any> {
     return this.main;
   }

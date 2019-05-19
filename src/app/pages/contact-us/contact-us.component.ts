@@ -15,6 +15,9 @@ export class ContactUsComponent implements OnInit {
   filename1: any;
   Url1: string;
   Url2: string;
+  uploadPercent1: Observable<number>;
+  downloadURL2: Observable<any>;
+  uploadPercent2: Observable<number>;
   constructor(public dataService: DataService, private storage: AngularFireStorage) {
     dataService.getDocId('services').subscribe((data) => {
       this.data = data;
@@ -32,7 +35,7 @@ export class ContactUsComponent implements OnInit {
   ref1: AngularFireStorageReference;
   ref2: AngularFireStorageReference;
   task: AngularFireUploadTask;
-  downloadURL: Observable<number>;
+  downloadURL1: Observable<number>;
 
 
   myform: FormGroup;
@@ -86,22 +89,56 @@ export class ContactUsComponent implements OnInit {
     , 'Uzbekistan', 'Venezuela', 'Vietnam', 'Virgin Islands (US)', 'Yemen', 'Zambia', 'Zimbabwe'];
 
   mainerrors = false;
-  fileToUplode1(event) {
-    const id = Math.random().toString(36).substring(2);
 
-    this.ref1 = this.storage.ref(id);
+
+
+  fileToUplode1(event) {
+
+
+    const file = event.target.files[0];
+    const filePath = '000request' + file.name;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+
+    // observe percentage changes
+    this.uploadPercent1 = task.percentageChanges();
+    // get notified when the download URL is available
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        this.downloadURL1 = fileRef.getDownloadURL();
+        this.downloadURL1.subscribe(url => {
+          this.Url1 = url.toString();
+          console.log(this.Url1);
+        });
+      })
+    )
+      .subscribe();
 
     this.filename1 = event.target.files[0];
-    // this.ref = this.storage.ref(this.filename1);
   }
 
   fileToUplode2(event) {
+
+
+    const file = event.target.files[0];
+    const filePath = '000request' + file.name;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+
+    // observe percentage changes
+    this.uploadPercent2 = task.percentageChanges();
+    // get notified when the download URL is available
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        this.downloadURL2 = fileRef.getDownloadURL();
+        this.downloadURL2.subscribe(url => {
+          this.Url2 = url.toString();
+          console.log(this.Url2);
+        });
+      })
+    )
+      .subscribe();
     this.filename2 = event.target.files[0];
-    const id = Math.random().toString(36).substring(2);
-    this.ref2 = this.storage.ref('requirment_' + this.filename2.name);
-    console.log(this.filename2.name);
-    
-    // this.ref = this.storage.ref(this.filename2);
   }
 
 
@@ -136,20 +173,14 @@ export class ContactUsComponent implements OnInit {
   }
   onSubmit() {
     if (this.myform.valid) {
-      // console.log(this.nameV + ' ' + this.emailV + ' ' + this.pnoV + ' ' + this.companyV + ' ' + this.countryV + ' ' + this.servicesV);
-      // console.log(this.txtV);
-
       this.dataService.sendMail(
-        this.txtV, this.nameV, this.emailV, this.pnoV, this.companyV, this.countryV, this.servicesV
+        this.txtV, this.nameV, this.emailV, this.pnoV, this.companyV, this.countryV, this.servicesV, this.Url1, this.Url2
       );
-
-
       this.myform.reset();
       window.alert('Thank You! your  Form Submited..');
       this.mainerrors = false;
     } else {
       this.mainerrors = true;
-      // window.alert('fill Mandatory field');
     }
   }
 

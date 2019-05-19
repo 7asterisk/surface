@@ -23,12 +23,141 @@
                 </span>
               </p>
               <br><br>
-              <p><a class="button is-black is-hidden-touch"
+
+
+              <div class="content-wrapper">
+                <div class="columns">
+                  <div class="column is-10 is-offset-1">
+
+
+
+
+
+
+                    <div class="container">
+                      <form novalidate [formGroup]="myform" (ngSubmit)="onSubmit()">
+                        <div class="form-control-feedback" *ngIf="mainerrors">
+                          <p class="notification is-danger"> <button class="delete"
+                              (click)="mainerrors = false"></button>Fill
+                            all the required field</p>
+                        </div>
+                        <div class="form-control-feedback" *ngIf="sucess">
+                          <p class="notification is-success"> <button class="delete"
+                              (click)="sucess = false"></button>Your Application Submited successfully</p>
+                        </div>
+                        
+                        <div class="columns">
+                          <fieldset formGroupName="name" class="column is-6">
+                            <div class="form-group" [ngClass]="{
+                'has-danger': firstName.invalid && (firstName.dirty || firstName.touched),
+                'has-success': firstName.valid && (firstName.dirty || firstName.touched)
+              }">
+                              <!-- <label>Name *</label> -->
+                              <input type="text" class="form-control" placeholder="Name *" [(ngModel)]="nameV" formControlName="firstName"
+                                required>
+                              <div class="form-control-feedback"
+                                *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                                <p class="notification is-danger" *ngIf="firstName.errors.required">first Name is
+                                  required</p>
+                              </div>
+                            </div>
+                          </fieldset>
+
+
+                          <div class="form-group column is-6" [ngClass]="{
+                'has-danger': email.invalid && (email.dirty || email.touched),
+                'has-success': email.valid && (email.dirty || email.touched)
+           }">
+                            <!-- <label>Email *</label> -->
+                            <input type="email" class="form-control" placeholder="Email *" formControlName="email" [(ngModel)]="emailV"
+                              required>
+                            <div class="form-control-feedback " *ngIf="email.errors && (email.dirty || email.touched)">
+                              <p class="notification is-danger" *ngIf="email.errors.required">Email is required</p>
+                              <p class="notification is-danger" *ngIf="email.errors.minlength">The email address must
+                                contain
+                                at least the @ character</p>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="columns">
+                          <div class="form-group column is-6" [ngClass]="{
+          'has-danger': pno.invalid && (pno.dirty || pno.touched),
+          'has-success': pno.valid && (pno.dirty || pno.touched)
+      }">
+                            <!-- <label>Phone Number*</label> -->
+                            <input type="number" class="form-control" placeholder="Phone Number*" formControlName="pno" [(ngModel)]="pnoV" required>
+                            <div class="form-control-feedback" *ngIf="pno.errors && (pno.dirty || pno.touched)">
+                              <p class="notification is-danger" class="notification is-danger"
+                                *ngIf="pno.errors.required">
+                                Number is required</p>
+                              <p class="notification is-danger" class="notification is-danger"
+                                *ngIf="pno.errors.pattern">The
+                                Phone Number must contain 10 digit</p>
+                            </div>
+                          </div>
+                          <fieldset formGroupName="name" class="column is-6">
+                            <div class="form-group" [ngClass]="{
+      'has-danger': company.invalid && (company.dirty || company.touched),
+      'has-success': company.valid && (company.dirty || company.touched)
+      }">
+                              <!-- <label>Highest Qualification *</label> -->
+                              <input type="text" class="form-control" placeholder="Highest Qualification *" [(ngModel)]="qualification" formControlName="company"
+                                required>
+                              <div class="form-control-feedback"
+                                *ngIf="company.errors && (company.dirty || company.touched)">
+                                <p class="notification is-danger" *ngIf="company.errors.required">qualification is required
+                                </p>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+                        <div class="form-group column is-12 ">
+                          <textarea class="textarea" style="height: 5rem" class="form-control" formControlName="txt"
+                            [(ngModel)]="txtV" placeholder="Address*" required>
+                                      </textarea>
+                        </div>
+                        <div class="column is-12 has-text-centered">
+                          <div class="file has-name is-fullwidth">
+                            <label class="file-label">
+                              <input class="file-input" (change)="fileToUplode1($event)" type="file" name="file1">
+                              <span class="file-cta">
+                                <span class="file-icon">
+                                  <i class="material-icons">
+                                    cloud_upload
+                                  </i>
+                                </span>
+                                <span class="file-label">
+                                  Upload resume …
+                                </span>
+                              </span>
+                              <span class="file-name">
+                                {{filename1?.name}}
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="column is-12 has-text-centered">
+                          <button type="submit" class="button is-black">Submit
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+              <!-- <p><a class="button is-black is-hidden-touch"
                   href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=sdtpl.re@gmail.com&su=Resume&body=About_you&bcc=&tf=1">Apply
                   Now</a></p>
               <p style="color:white"><a class="button is-black   is-hidden-desktop"
                   onclick="window.location.href = 'mailto:sdtpl.re@gmail.com';">Apply
-                  Now</a></p>
+                  Now</a></p> -->
 
             </div>
 

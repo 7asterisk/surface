@@ -146,7 +146,8 @@
               <div class="container">
                 <form novalidate [formGroup]="myform" (ngSubmit)="onSubmit()">
                   <div class="form-control-feedback" *ngIf="mainerrors">
-                    <p class="notification is-danger"> <button class="delete" (click)="mainerrors = false"></button>Fill all the required field</p>
+                    <p class="notification is-danger"> <button class="delete" (click)="mainerrors = false"></button>Fill
+                      all the required field</p>
                   </div>
                   <div class="columns">
                     <fieldset formGroupName="name" class="column is-6">
@@ -154,8 +155,8 @@
           'has-danger': firstName.invalid && (firstName.dirty || firstName.touched),
           'has-success': firstName.valid && (firstName.dirty || firstName.touched)
         }">
-                        <label>Name *</label>
-                        <input type="text" class="form-control" [(ngModel)]="nameV" formControlName="firstName"
+                        <!-- <label>Name *</label> -->
+                        <input type="text" class="form-control" [(ngModel)]="nameV" placeholder="Name *"ormControlName="firstName"
                           required>
                         <div class="form-control-feedback"
                           *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
@@ -169,8 +170,8 @@
           'has-danger': email.invalid && (email.dirty || email.touched),
           'has-success': email.valid && (email.dirty || email.touched)
      }">
-                      <label>Email *</label>
-                      <input type="email" class="form-control" formControlName="email" [(ngModel)]="emailV" required>
+                      <!-- <label>Email *</label> -->
+                      <input type="email" class="form-control" formControlName="email" placeholder="Email *" [(ngModel)]="emailV" required>
                       <div class="form-control-feedback " *ngIf="email.errors && (email.dirty || email.touched)">
                         <p class="notification is-danger" *ngIf="email.errors.required">Email is required</p>
                         <p class="notification is-danger" *ngIf="email.errors.minlength">The email address must contain
@@ -185,8 +186,8 @@
     'has-danger': pno.invalid && (pno.dirty || pno.touched),
     'has-success': pno.valid && (pno.dirty || pno.touched)
 }">
-                      <label>Phone Number*</label>
-                      <input type="number" class="form-control" formControlName="pno" [(ngModel)]="pnoV" required>
+                      <!-- <label>Phone Number*</label> -->
+                      <input type="number" class="form-control" placeholder="Phone Number*" formControlName="pno" [(ngModel)]="pnoV" required>
                       <div class="form-control-feedback" *ngIf="pno.errors && (pno.dirty || pno.touched)">
                         <p class="notification is-danger" class="notification is-danger" *ngIf="pno.errors.required">
                           Number is required</p>
@@ -201,8 +202,8 @@
 'has-danger': company.invalid && (company.dirty || company.touched),
 'has-success': company.valid && (company.dirty || company.touched)
 }">
-                        <label>Company* </label>
-                        <input type="text" class="form-control" [(ngModel)]="companyV" formControlName="company"
+                        <!-- <label>Company* </label> -->
+                        <input type="text" class="form-control" [(ngModel)]="companyV" placeholder="Company*" formControlName="company"
                           required>
                         <div class="form-control-feedback" *ngIf="company.errors && (company.dirty || company.touched)">
                           <p class="notification is-danger" *ngIf="company.errors.required">Company is required</p>
@@ -220,7 +221,7 @@
     'has-danger': services.invalid && (services.dirty || services.touched),
     'has-success': services.valid && (services.dirty || services.touched)
   }">
-                      <label>Services*</label>
+                      <!-- <label>Services*</label> -->
                       <select [(ngModel)]="servicesV" class="form-control" formControlName="services">
                         <option>Please select service</option>
                         <option *ngFor="let d of data">{{d.id | uppercase}}</option>
@@ -234,7 +235,7 @@
                       'has-danger': country.invalid && (country.dirty || country.touched),
                       'has-success': country.valid && (country.dirty || country.touched)
                     }">
-                      <label>Country*</label>
+                      <!-- <label>Country*</label> -->
                       <select [(ngModel)]="countryV" class="form-control" formControlName="country">
                         <option value="">Please select a country</option>
                         <option *ngFor="let lang of country_list">{{lang}}
@@ -245,9 +246,12 @@
                   </div>
                   <div class="columns">
                     <div class="column is-6">
+                      <mat-progress-bar *ngIf="uploadPercent1" mode="determinate" value="{{uploadPercent1 | async}}">
+                      </mat-progress-bar>
+                      <!-- <span>{{uploadPercent1}}%</span> -->
                       <div class="file has-name is-boxed">
                         <label class="file-label">
-                          <input class="file-input" (change)="fileToUplode1($event)"  type="file" name="file1">
+                          <input class="file-input" (change)="fileToUplode1($event)" type="file" name="file1">
                           <span class="file-cta">
                             <span class="file-icon">
                               <i class="material-icons">
@@ -266,6 +270,9 @@
                     </div>
 
                     <div class="column is-6">
+
+                      <mat-progress-bar style="padding-right: 10px" *ngIf="uploadPercent2" mode="determinate"
+                        value="{{uploadPercent2 | async}}"></mat-progress-bar>
                       <div class="file has-name is-boxed">
                         <label class="file-label">
                           <input class="file-input" (change)="fileToUplode2($event)" type="file" name="file2">
@@ -276,7 +283,7 @@
                               </i>
                             </span>
                             <span class="file-label">
-                             Choose a file...
+                              Choose a file...
                             </span>
                           </span>
                           <span class="file-name">
@@ -291,7 +298,7 @@
 
 
                   <div class="form-group column is-12">
-                    <textarea class="textarea" style="height: 8rem" class="form-control" formControlName="txt"
+                    <textarea class="textarea" style="height: 8rem" placeholder="Write Somthing ..." class="form-control" formControlName="txt"
                       [(ngModel)]="txtV" required>
                                 </textarea>
                   </div>
@@ -305,7 +312,7 @@
                 </form>
               </div>
 
-              <div class="column is-12 has-text-centered ">
+              <!-- <div class="column is-12 has-text-centered ">
                 <br> Or You Can Mail Us <br>
                 <a class="button is-black is-hidden-touch"
                   href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=sdtpl.re@gmail.com&su=Add_subject&body=Requirment&bcc=&tf=1">
@@ -331,95 +338,7 @@
                   Mail Us
                   &nbsp;&nbsp;&nbsp;&nbsp;
                 </a>
-              </div>
-
-
-              <!-- <form (ngSubmit)="sendMail()" [formGroup]="myform">
-                <div class="columns is-multiline">
-                  <div class="column is-6 container">
-                    <mat-form-field>
-                      <input matInput required [(ngModel)]="name" name="name" type="text" placeholder="Enter your Name">
-                    </mat-form-field>
-                  </div>
-                  <div class="column is-6 container">
-                    <mat-form-field>
-                      <input matInput [(ngModel)]="email" name="email" type="email" required
-                        placeholder="Enter your Email">
-                    </mat-form-field>
-                  </div>
-                  <div class="column is-6 container">
-                    <mat-form-field>
-                      <input matInput [(ngModel)]="pno" name="pno" type="tel" placeholder="Enter your Number">
-                    </mat-form-field>
-                  </div>
-                  <div class="column is-6 container">
-                    <mat-form-field>
-                      <input matInput [(ngModel)]="company" name="company" type="text" placeholder="Company">
-                    </mat-form-field>
-                  </div>
-                  <div class="column is-6 container">
-                    <div class="field">
-                      <div class="control">
-                        <div class="select ">
-                          <select [(ngModel)]="service" name="service">
-                            <option *ngFor="let d of data">{{d.id | uppercase}}</option>
-                            <option *ngFor="let d of pdata">{{d.id | uppercase}}</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="column is-6 container">
-                    <div class="field">
-                      <div class="control">
-                        <div class="select ">
-                          <select [(ngModel)]="country" name="country">
-                            <option *ngFor="let  c of country_list">{{c}}</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="column is-12">
-                    <textarea class="textarea" [(ngModel)]="txt" name="name" rows="5"
-                      placeholder="Write someting ..."></textarea>
-                  </div>
-
-                  <div class="column is-6 container">
-                    <div class="file">
-                      <label class="file-label">
-                        <input class="file-input" type="file" name="resume">
-                        <span class="file-cta">
-                          <span class="file-icon">
-                            <i class="fa fa-upload"></i>
-                          </span>
-                          <span class="file-label">
-                            Choose a file…
-                          </span>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="column is-6 container">
-                    <div class="file">
-                      <label class="file-label">
-                        <input class="file-input" type="file" name="resume">
-                        <span class="file-cta">
-                          <span class="file-icon">
-                            <i class="fa fa-upload"></i>
-                          </span>
-                          <span class="file-label">
-                            Choose a file…
-                          </span>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="form-footer has-text-centered mt-10">
-                    <button class="button cta  is-black raised is-clear">Submit</button>
-                  </div>
-                </div>
-              </form> -->
+              </div> -->
             </div>
           </div>
         </div>

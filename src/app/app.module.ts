@@ -34,6 +34,7 @@ import {
   MatCardModule,
   MatStepperModule,
   MatAutocompleteModule,
+  MatProgressBarModule
 } from '@angular/material';
 import { environment } from 'src/environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -98,9 +99,10 @@ import { AuthGuard } from './pages/admin/auth-guard.service';
     MatButtonModule,
     MatStepperModule,
     MatAutocompleteModule,
+    MatProgressBarModule,
     ReactiveFormsModule
   ],
-  providers: [ AuthService, AuthGuard ],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

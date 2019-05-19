@@ -12,7 +12,7 @@ export class IndustriesComponent implements OnInit {
   constructor(public dataService: DataService) {
     dataService.getDocId('industries').subscribe((data) => {
     this.data = data;
-    console.log(data);
+    // console.log(data);
     });
   }
   ngOnInit() {

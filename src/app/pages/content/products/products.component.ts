@@ -12,7 +12,7 @@ export class ProductsComponent {
   constructor(public dataService: DataService) {
     dataService.getDocId('products').subscribe((data) => {
       this.data = data;
-      console.log(data);
+      // console.log(data);
     });
   }
   trim(d) {
