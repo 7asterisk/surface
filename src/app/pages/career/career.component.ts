@@ -36,13 +36,16 @@ export class CareerComponent implements OnInit {
   qualification: any;
   sucess: boolean;
 
-
+  filepath;
+  uploding: boolean;
   constructor(private dataService: DataService, private storage: AngularFireStorage) { }
 
 
   fileToUplode1(event) {
+    this.uploding = true;
     const file = event.target.files[0];
-    const filePath = '000request' + file.name;
+    console.log(file);
+    const filePath = 'attach/' + file.name;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
     this.uploadPercent1 = task.percentageChanges();
@@ -52,6 +55,7 @@ export class CareerComponent implements OnInit {
         this.downloadURL1.subscribe(url => {
           this.Url1 = url.toString();
           console.log(this.Url1);
+          this.uploding = false;
         });
       })
     )
@@ -91,12 +95,12 @@ export class CareerComponent implements OnInit {
     });
   }
   onSubmit() {
-    if (this.myform.valid) {
+    if (this.myform.valid ) {
       this.dataService.sendResume(
         this.txtV, this.nameV, this.emailV, this.pnoV, this.qualification, this.Url1
       );
       this.myform.reset();
-      this.sucess=true;
+      this.sucess = true;
       // window.alert('Thank You! your  Form Submited..');
       this.mainerrors = false;
     } else {

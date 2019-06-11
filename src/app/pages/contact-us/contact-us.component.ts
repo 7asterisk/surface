@@ -13,6 +13,8 @@ import { finalize } from 'rxjs/operators';
 export class ContactUsComponent implements OnInit {
   filename2: any;
   filename1: any;
+  uploding1 = false;
+  uploding2 = false;
   Url1: string;
   Url2: string;
   uploadPercent1: Observable<number>;
@@ -55,7 +57,7 @@ export class ContactUsComponent implements OnInit {
   servicesV = '';
   file1;
   file2;
-
+  submiting;
 
 
   country_list = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Anguilla', 'Antigua &amp; Barbuda',
@@ -94,9 +96,9 @@ export class ContactUsComponent implements OnInit {
 
   fileToUplode1(event) {
 
-
+    this.uploding1 = true;
     const file = event.target.files[0];
-    const filePath = '000request' + file.name;
+    const filePath = 'attach/' + file.name;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
 
@@ -109,6 +111,7 @@ export class ContactUsComponent implements OnInit {
         this.downloadURL1.subscribe(url => {
           this.Url1 = url.toString();
           console.log(this.Url1);
+          this.uploding1 = false;
         });
       })
     )
@@ -119,9 +122,9 @@ export class ContactUsComponent implements OnInit {
 
   fileToUplode2(event) {
 
-
+    this.uploding2 = true;
     const file = event.target.files[0];
-    const filePath = '000request' + file.name;
+    const filePath = 'attach/' + file.name;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
 
@@ -134,6 +137,7 @@ export class ContactUsComponent implements OnInit {
         this.downloadURL2.subscribe(url => {
           this.Url2 = url.toString();
           console.log(this.Url2);
+          this.uploding2 = false;
         });
       })
     )
@@ -177,9 +181,10 @@ export class ContactUsComponent implements OnInit {
         this.txtV, this.nameV, this.emailV, this.pnoV, this.companyV, this.countryV, this.servicesV, this.Url1, this.Url2
       );
       this.myform.reset();
-      window.alert('Thank You! your  Form Submited..');
+      this.submiting = true;
       this.mainerrors = false;
     } else {
+      this.submiting = true;
       this.mainerrors = true;
     }
   }

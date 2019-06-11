@@ -28,6 +28,12 @@ export class DataService {
   private j = new BehaviorSubject(0);
   manu = this.j.asObservable();
 
+  private reqsubmit = new BehaviorSubject(false);
+  reqsubmited = this.i.asObservable();
+  private rsmsubmit = new BehaviorSubject(false);
+  rsmsubmited = this.j.asObservable();
+
+
   private itemsCollection: AngularFirestoreCollection<any>;
   private itemDoc: AngularFirestoreDocument<any>;
   item: Observable<any>;
@@ -36,7 +42,11 @@ export class DataService {
     ftype: string, txt: any; nameV: any; emailV: any;
     pnoV: any; companyV: any; countryV: any; servicesV: any; url1: any; url2: any;
   };
-  reumebody: { ftype: string; txt: any; nameV: any; emailV: any; pnoV: any; companyV: any; url1: any; };
+  reumebody: {
+    ftype: string; txt: any; nameV: any; emailV: any; pnoV: any; companyV: any;
+    //  url1: any;
+    file1: any;
+  };
   constructor(public db: AngularFirestore, public afs: AngularFirestore, private http: HttpClient) {
     // db.collection('xyz').valueChanges();
   }
@@ -46,12 +56,12 @@ export class DataService {
   //  const httpParams = new HttpParams().set('file',file); 
   //   this.http.post('',file)
   // }
-  sendResume(txt, nameV, emailV, pnoV, companyV, url1) {
-
+  sendResume(txt, nameV, emailV, pnoV, companyV, file1) {
+    this.reqsubmit.next(true);
     this.reumebody = {
       ftype: 'resume',
       txt: txt, nameV: nameV, emailV: emailV, pnoV: pnoV, companyV: companyV,
-      url1: url1
+      file1: file1
     };
 
     console.log(this.reumebody);
@@ -66,13 +76,14 @@ export class DataService {
       })
       .catch(err => {
         console.log(err);
+        this.rsmsubmit.next(false);
       });
   }
 
 
 
   sendMail(txt, nameV, emailV, pnoV, companyV, countryV, servicesV, url1, url2) {
-
+    this.reqsubmit.next(true);
     this.body = {
       ftype: 'request',
       txt: txt, nameV: nameV, emailV: emailV, pnoV: pnoV, companyV: companyV,
@@ -87,10 +98,15 @@ export class DataService {
     return this.http.post(url, this.body, headers)
       .toPromise()
       .then(res => {
+
+        this.setreq(false);
         console.log(res);
+        console.log(this.getreq());
       })
       .catch(err => {
+        this.setreq(false);
         console.log(err);
+        console.log(this.getreq());
       });
   }
 
@@ -110,6 +126,21 @@ export class DataService {
   getmanu(): Observable<any> {
     return this.manu;
   }
+
+  setreq(main) {
+    this.reqsubmit.next(main);
+  }
+  getreq(): Observable<any> {
+    return this.reqsubmited;
+  }
+
+  setrsm(main) {
+    this.rsmsubmit.next(main);
+  }
+  getrsm(): Observable<any> {
+    return this.rsmsubmited;
+  }
+
 
   getCollecion(main) {
     this.itemsCollection = this.db.collection<any>(main);

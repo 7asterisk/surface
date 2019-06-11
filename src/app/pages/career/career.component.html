@@ -43,9 +43,9 @@
                         </div>
                         <div class="form-control-feedback" *ngIf="sucess">
                           <p class="notification is-success"> <button class="delete"
-                              (click)="sucess = false"></button>Your Application Submited successfully</p>
+                              (click)="sucess = false"></button>Your Application Submitted Successfully</p>
                         </div>
-                        
+
                         <div class="columns">
                           <fieldset formGroupName="name" class="column is-6">
                             <div class="form-group" [ngClass]="{
@@ -53,8 +53,8 @@
                 'has-success': firstName.valid && (firstName.dirty || firstName.touched)
               }">
                               <!-- <label>Name *</label> -->
-                              <input type="text" class="form-control" placeholder="Name *" [(ngModel)]="nameV" formControlName="firstName"
-                                required>
+                              <input type="text" class="form-control" placeholder="Name *" [(ngModel)]="nameV"
+                                formControlName="firstName" required>
                               <div class="form-control-feedback"
                                 *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
                                 <p class="notification is-danger" *ngIf="firstName.errors.required">first Name is
@@ -69,8 +69,8 @@
                 'has-success': email.valid && (email.dirty || email.touched)
            }">
                             <!-- <label>Email *</label> -->
-                            <input type="email" class="form-control" placeholder="Email *" formControlName="email" [(ngModel)]="emailV"
-                              required>
+                            <input type="email" class="form-control" placeholder="Email *" formControlName="email"
+                              [(ngModel)]="emailV" required>
                             <div class="form-control-feedback " *ngIf="email.errors && (email.dirty || email.touched)">
                               <p class="notification is-danger" *ngIf="email.errors.required">Email is required</p>
                               <p class="notification is-danger" *ngIf="email.errors.minlength">The email address must
@@ -87,7 +87,8 @@
           'has-success': pno.valid && (pno.dirty || pno.touched)
       }">
                             <!-- <label>Phone Number*</label> -->
-                            <input type="number" class="form-control" placeholder="Phone Number*" formControlName="pno" [(ngModel)]="pnoV" required>
+                            <input type="number" class="form-control" placeholder="Phone Number*" formControlName="pno"
+                              [(ngModel)]="pnoV" required>
                             <div class="form-control-feedback" *ngIf="pno.errors && (pno.dirty || pno.touched)">
                               <p class="notification is-danger" class="notification is-danger"
                                 *ngIf="pno.errors.required">
@@ -103,11 +104,12 @@
       'has-success': company.valid && (company.dirty || company.touched)
       }">
                               <!-- <label>Highest Qualification *</label> -->
-                              <input type="text" class="form-control" placeholder="Highest Qualification *" [(ngModel)]="qualification" formControlName="company"
-                                required>
+                              <input type="text" class="form-control" placeholder="Highest Qualification *"
+                                [(ngModel)]="qualification" formControlName="company" required>
                               <div class="form-control-feedback"
                                 *ngIf="company.errors && (company.dirty || company.touched)">
-                                <p class="notification is-danger" *ngIf="company.errors.required">qualification is required
+                                <p class="notification is-danger" *ngIf="company.errors.required">qualification is
+                                  required
                                 </p>
                               </div>
                             </div>
@@ -119,6 +121,9 @@
                                       </textarea>
                         </div>
                         <div class="column is-12 has-text-centered">
+                          <div *ngIf="uploding">
+                            uploading please wait....
+                          </div>
                           <div class="file has-name is-fullwidth">
                             <label class="file-label">
                               <input class="file-input" (change)="fileToUplode1($event)" type="file" name="file1">
@@ -138,10 +143,18 @@
                             </label>
                           </div>
                         </div>
-                        <div class="column is-12 has-text-centered">
-                          <button type="submit" class="button is-black">Submit
-                          </button>
-                        </div>
+                        <ng-container *ngIf="uploding; else elseTemplate">
+                          <div class="column is-12 has-text-centered">
+                            <button  class="button is-black" disabled>Submit
+                            </button>
+                          </div>
+                        </ng-container>
+                        <ng-template #elseTemplate>
+                          <div class="column is-12 has-text-centered">
+                            <button type="submit" class="button is-black">Submit
+                            </button>
+                          </div>
+                        </ng-template>
                       </form>
                     </div>
                   </div>

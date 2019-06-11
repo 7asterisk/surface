@@ -145,6 +145,11 @@
 
               <div class="container">
                 <form novalidate [formGroup]="myform" (ngSubmit)="onSubmit()">
+                  <div class="form-control-feedback" *ngIf="submiting">
+                    <p class="notification is-success"> <button class="delete" (click)="submiting = false"></button>
+                      Form Submitted Successfully.
+                    </p>
+                  </div>
                   <div class="form-control-feedback" *ngIf="mainerrors">
                     <p class="notification is-danger"> <button class="delete" (click)="mainerrors = false"></button>Fill
                       all the required field</p>
@@ -156,8 +161,8 @@
           'has-success': firstName.valid && (firstName.dirty || firstName.touched)
         }">
                         <!-- <label>Name *</label> -->
-                        <input type="text" class="form-control" [(ngModel)]="nameV" placeholder="Name *"ormControlName="firstName"
-                          required>
+                        <input type="text" class="form-control" [(ngModel)]="nameV" placeholder="Name *"
+                          formControlName="firstName" required>
                         <div class="form-control-feedback"
                           *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
                           <p class="notification is-danger" *ngIf="firstName.errors.required">first Name is required</p>
@@ -171,7 +176,8 @@
           'has-success': email.valid && (email.dirty || email.touched)
      }">
                       <!-- <label>Email *</label> -->
-                      <input type="email" class="form-control" formControlName="email" placeholder="Email *" [(ngModel)]="emailV" required>
+                      <input type="email" class="form-control" formControlName="email" placeholder="Email *"
+                        [(ngModel)]="emailV" required>
                       <div class="form-control-feedback " *ngIf="email.errors && (email.dirty || email.touched)">
                         <p class="notification is-danger" *ngIf="email.errors.required">Email is required</p>
                         <p class="notification is-danger" *ngIf="email.errors.minlength">The email address must contain
@@ -187,7 +193,8 @@
     'has-success': pno.valid && (pno.dirty || pno.touched)
 }">
                       <!-- <label>Phone Number*</label> -->
-                      <input type="number" class="form-control" placeholder="Phone Number*" formControlName="pno" [(ngModel)]="pnoV" required>
+                      <input type="number" class="form-control" placeholder="Phone Number*" formControlName="pno"
+                        [(ngModel)]="pnoV" required>
                       <div class="form-control-feedback" *ngIf="pno.errors && (pno.dirty || pno.touched)">
                         <p class="notification is-danger" class="notification is-danger" *ngIf="pno.errors.required">
                           Number is required</p>
@@ -203,8 +210,8 @@
 'has-success': company.valid && (company.dirty || company.touched)
 }">
                         <!-- <label>Company* </label> -->
-                        <input type="text" class="form-control" [(ngModel)]="companyV" placeholder="Company*" formControlName="company"
-                          required>
+                        <input type="text" class="form-control" [(ngModel)]="companyV" placeholder="Company*"
+                          formControlName="company" required>
                         <div class="form-control-feedback" *ngIf="company.errors && (company.dirty || company.touched)">
                           <p class="notification is-danger" *ngIf="company.errors.required">Company is required</p>
                         </div>
@@ -246,9 +253,9 @@
                   </div>
                   <div class="columns">
                     <div class="column is-6">
-                      <mat-progress-bar *ngIf="uploadPercent1" mode="determinate" value="{{uploadPercent1 | async}}">
-                      </mat-progress-bar>
-                      <!-- <span>{{uploadPercent1}}%</span> -->
+                      <div class="notification is-warn" *ngIf="uploding1">
+                        Uploading ...
+                      </div>
                       <div class="file has-name is-boxed">
                         <label class="file-label">
                           <input class="file-input" (change)="fileToUplode1($event)" type="file" name="file1">
@@ -270,9 +277,9 @@
                     </div>
 
                     <div class="column is-6">
-
-                      <mat-progress-bar style="padding-right: 10px" *ngIf="uploadPercent2" mode="determinate"
-                        value="{{uploadPercent2 | async}}"></mat-progress-bar>
+                      <div class="notification is-warn" *ngIf="uploding2">
+                        uploading ...
+                      </div>
                       <div class="file has-name is-boxed">
                         <label class="file-label">
                           <input class="file-input" (change)="fileToUplode2($event)" type="file" name="file2">
@@ -298,8 +305,8 @@
 
 
                   <div class="form-group column is-12">
-                    <textarea class="textarea" style="height: 8rem" placeholder="Write Somthing ..." class="form-control" formControlName="txt"
-                      [(ngModel)]="txtV" required>
+                    <textarea class="textarea" style="height: 8rem" placeholder="Write Something ..."
+                      class="form-control" formControlName="txt" [(ngModel)]="txtV" required>
                                 </textarea>
                   </div>
 
